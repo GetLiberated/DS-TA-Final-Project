@@ -1,0 +1,4 @@
+- buat erd yg versi baru
+- bagusin menu (index.php)
+- buat title di setiap page
+- benerin else { echo '<script type="text/javascript"> showAddRow(); </script>'; }
