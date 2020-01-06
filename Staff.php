@@ -90,11 +90,21 @@
         .submit:hover {
             background-color: #009e05;
         }
+        .title {
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 20px;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
     <p id="debug"></p>
     <a href="index.php">Back</a>
+    <p class="title">Staff Database</p>
     <button onclick="editDatabase()" class="edit">Edit</button>
     <br><br>
     <table id="database">
@@ -148,7 +158,7 @@
                     echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["staffID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["name"]. "</td><td>" . $row["restaurantID"]."</td></tr>";
                 }
                 // echo "</table>";
-            } else { echo '<script type="text/javascript"> showAddRow(); </script>'; }
+            } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
             $conn->close();
         ?>
     </table>

@@ -1,4 +1,8 @@
 - buat erd yg versi baru
-- bagusin menu (index.php)
-- buat title di setiap page
-- benerin else { echo '<script type="text/javascript"> showAddRow(); </script>'; }
+
+- RAW QUERY
+- Group By, Order By (Select *, COUNT(*) from `table_name` Group By `column_name`)
+- Transaction Details
+- Mimic the Receipt/Invoice
+- Interface
+    - bagusin menu (index.php)

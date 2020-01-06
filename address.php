@@ -90,11 +90,21 @@
         .submit:hover {
             background-color: #009e05;
         }
+        .title {
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 20px;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
     <p id="debug"></p>
     <a href="index.php">Back</a>
+    <p class="title">Address Database</p>
     <button onclick="editDatabase()" class="edit">Edit</button>
     <br><br>
     <table id="database">
@@ -153,7 +163,7 @@
                     echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"addressID\" value=\"" . $row["addressID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["streetName"]. "</td><td>" . $row["zipCode"]. "</td><td>" . $row["province"]. "</td><td>" . $row["city"]. "</td><td>" . $row["country"]. "</td></tr>";
                 }
                 // echo "</table>";
-            } else { echo '<script type="text/javascript"> showAddRow(); </script>'; }
+            } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
             $conn->close();
         ?>
     </table>
