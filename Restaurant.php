@@ -61,6 +61,7 @@
             font-size: 25px;
             text-align: left;
             border-radius: 5px;
+            table-layout: fixed;
         }
         th {
             background-color: #588c7e;
@@ -107,6 +108,9 @@
             position: relative;
             left: 45%;
             transform: translateX(-50%);
+        }
+        input {
+            width: 100%;
         }
         .back{
             position: relative;

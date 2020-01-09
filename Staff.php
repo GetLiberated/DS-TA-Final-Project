@@ -61,6 +61,7 @@
             font-size: 25px;
             text-align: left;
             border-radius: 5px;
+            table-layout: fixed;
         }
         th {
             background-color: #588c7e;
@@ -108,6 +109,9 @@
             left: 45%;
             transform: translateX(-50%);
         }
+        input {
+            width: 100%;
+        }
         .back{
             position: relative;
             left: 1%;
@@ -125,10 +129,10 @@
     <br><br>
     <table id="database">
         <tr>
-            <th></th>
-            <th>Staff ID</th>
-            <th>Name</th>
-            <th>Restaurant ID</th>
+            <th width="8%"></th>
+            <th width="10%">Staff ID</th>
+            <th width="41%">Name</th>
+            <th width="41%">Restaurant ID</th>
         </tr>
         <?php
             $id = $_GET["id"];

@@ -61,6 +61,7 @@
             font-size: 25px;
             text-align: left;
             border-radius: 5px;
+            table-layout: fixed;
         }
         th {
             background-color: #588c7e;
@@ -108,6 +109,9 @@
             left: 45%;
             transform: translateX(-50%);
         }
+        input {
+            width: 100%;
+        }
         .back{
             position: relative;
             left: 1%;
@@ -125,11 +129,11 @@
     <br><br>
     <table id ="database"> 
         <tr>
-            <th></th>
-            <th>Item ID</th>
-            <th>Food Name</th>
-            <th>Price</th>
-            <th>Description</th>
+            <th width="8%"></th>
+            <th width="10%">Item ID</th>
+            <th width="30%">Food Name</th>
+            <th width="12%">Price</th>
+            <th width="40%">Description</th>
         </tr>
         <?php
             $id = $_GET["id"];
@@ -184,16 +188,18 @@
     <form action="" method="GET" id="insertForm" style="visibility: hidden;">
         <table id="inserTable">
             <tr>
-                <th></th>
-                <th><input type="text" name="foodName" required></th>
-                <th><input type="number" name="price" required></th>
-                <th><input type="text" name="description" required></th>
+                <th width="8%"></th>
+                <th width="10%"></th>
+                <th width="30%"><input type="text" name="foodName" required></th>
+                <th width="12%"><input type="number" name="price" required></th>
+                <th width="40%"><input type="text" name="description" required></th>
             </tr>
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><input class="submit" type="submit" value="Submit"></th>
+                <th width="8%"></th>
+                <th width="10%"></th>
+                <th width="30%"></th>
+                <th width="12%"></th>
+                <th width="40%"> <input  class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>

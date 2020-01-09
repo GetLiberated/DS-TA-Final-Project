@@ -127,13 +127,13 @@
     <br><br>
     <table id="database">
         <tr>
-            <th width="4%"></th>
-            <th width="6%">Address ID</th>
-            <th width="22%">Street Name</th>
-            <th width="5%">Zip Code</th>
-            <th width="7%">Province</th>
-            <th width="7%">City</th>
-            <th width="5%">Country</th>
+            <th width="8%"></th>
+            <th width="10%">Address ID</th>
+            <th width="30%">Street Name</th>
+            <th width="10%">Zip Code</th>
+            <th width="16%">Province</th>
+            <th width="16%">City</th>
+            <th width="10%">Country</th>
         </tr>
         <?php
             $addressID = $_GET["addressID"];
@@ -189,22 +189,22 @@
     <form action="" method="GET" id="insertForm" style="visibility: hidden;">
         <table id="insertTable">
             <tr>
-                <th width="4%"></th>
-                <th width="6%"></th>
-                <th width="22%"><input type="text" name="streetName" required></th>
-                <th width="5%"><input type="number" name="zipCode" required></th>
-                <th width="7%"><input type="text" name="province" required></th>
-                <th width="7%"><input type="text" name="city" required></th>
-                <th width="5%"><input type="text" name="country" required></th>
+                <th width="8%"></th>
+                <th width="10%"></th>
+                <th width="30%"><input type="text" name="streetName" required></th>
+                <th width="10%"><input type="number" name="zipCode" required></th>
+                <th width="16%"><input type="text" name="province" required></th>
+                <th width="16%"><input type="text" name="city" required></th>
+                <th width="10%"><input type="text" name="country" required></th>
             </tr>
             <tr>
-                <th width="4%"></th>
-                <th width="6%"></th>
-                <th width="22%"></th>
-                <th width="5%"></th>
-                <th width="7%"></th>
-                <th width="7%"></th>
-                <th width="5%"><input class="submit" type="submit" value="Submit"></th>
+                <th width="8%"></th>
+                <th width="10%"></th>
+                <th width="30%"></th>
+                <th width="10%"></th>
+                <th width="16%"></th>
+                <th width="16%"></th>
+                <th width="10%"><input  class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>
