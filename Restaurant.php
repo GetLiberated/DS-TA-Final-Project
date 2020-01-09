@@ -3,8 +3,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Restaurant Database</title>
     <style>
@@ -113,10 +111,11 @@
             width: 100%;
         }
         .back{
-            position: relative;
-            left: 1%;
             display: inline-block;
         }
+        input {
+             width: 100%;
+         }
     </style>
 </head>
 <body>
@@ -129,13 +128,13 @@
     <br><br>
     <table id ="database"> 
         <tr>
-            <th></th>
-            <th>Restaurant ID</th>
-            <th>Restaurant Name</th>
-            <th>Address ID</th>
-            <th>Open Hours</th>
-            <th>Genre</th>
-            <th>Tax</th>
+            <th width="4%"></th>
+            <th width="6%">Restaurant ID</th>
+            <th width="12%">Restaurant Name</th>
+            <th width="6%">Address ID</th>
+            <th width="6%">Open Hours</th>
+            <th width="6%">Genre</th>
+            <th width="6%">Tax</th>
         </tr>
         <?php
             $id = $_GET["id"];
@@ -191,15 +190,16 @@
     <form action="" method="GET" id="insertForm" style="visibility: hidden;">
         <table id="inserTable">
             <tr>
-                <th></th>
-                <th></th>
-                <th><input type="text" name="name" required></th>
-                <th><input type="number" name="addressID" required></th>
-                <th><input type="text" name="openHours" required></th>
-                <th><input type="text" name="genre" required></th>
-                <th><input type="number" name="tax" required></th>
+                <th width="4%"></th>
+                <th width="6%"></th>
+                <th width="12%"><input type="text" name="name" required></th>
+                <th width="6%"><input type="number" name="addressID" required></th>
+                <th width="6%"><input type="text" name="openHours" required></th>
+                <th width="6%"><input type="text" name="genre" required></th>
+                <th width="6%"><input type="number" name="tax" required></th>
             </tr>
             <tr>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
