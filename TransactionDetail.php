@@ -120,6 +120,7 @@
     <table id="database">
         <tr>
             <th></th>
+            <th>Transaction Detail ID</th>
             <th>Item ID</th>
             <th>Transaction ID</th>
             <th>Quantity</th>
@@ -167,7 +168,7 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"transactionDetailID\" value=\"" . $row["transactionDetailID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["itemID"]. "</td><td>" . $row["transactionID"]. "</td><td>" . $row["quantity"]."</td></tr>";
+                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"transactionDetailID\" value=\"" . $row["transactionDetailID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["transactionDetailID"]. "</td><td>" . $row["itemID"]. "</td><td>" . $row["transactionID"]. "</td><td>" . $row["quantity"]."</td></tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }

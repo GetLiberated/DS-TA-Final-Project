@@ -121,6 +121,7 @@
     <table id="database">
         <tr>
             <th></th>
+            <th>Address ID</th>
             <th>Street Name</th>
             <th>Zip Code</th>
             <th>Province</th>
@@ -171,7 +172,7 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"addressID\" value=\"" . $row["addressID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["streetName"]. "</td><td>" . $row["zipCode"]. "</td><td>" . $row["province"]. "</td><td>" . $row["city"]. "</td><td>" . $row["country"]. "</td></tr>";
+                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"addressID\" value=\"" . $row["addressID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["addressID"]. "</td><td>" . $row["streetName"]. "</td><td>" . $row["zipCode"]. "</td><td>" . $row["province"]. "</td><td>" . $row["city"]. "</td><td>" . $row["country"]. "</td></tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
@@ -179,8 +180,9 @@
         ?>
     </table>
     <form action="" method="GET" id="insertForm" style="visibility: hidden;">
-        <table id="inserTable">
+        <table id="insertTable">
             <tr>
+                <th></th>
                 <th></th>
                 <th><input type="text" name="streetName" required></th>
                 <th><input type="number" name="zipCode" required></th>
@@ -189,6 +191,7 @@
                 <th><input type="text" name="country" required></th>
             </tr>
             <tr>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>

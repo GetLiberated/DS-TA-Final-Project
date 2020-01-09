@@ -120,6 +120,7 @@
     <table id="database">
         <tr>
             <th></th>
+            <th>Transaction ID</th>
             <th>Total</th>
             <th>Restaurant ID</th>
             <th>Staff ID</th>
@@ -167,7 +168,7 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["transactionID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["total"]. "</td><td>" . $row["restaurantID"]."</td><td>" . $row["staffID"]."</td></tr>";
+                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["transactionID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["transactionID"]. "</td><td>" . $row["total"]. "</td><td>" . $row["restaurantID"]."</td><td>" . $row["staffID"]."</td></tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
