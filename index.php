@@ -18,7 +18,7 @@
             background-image: url("BGImage.jpg");
             padding: 25px;
             background-repeat: no-repeat;
-            background-size: 1500px 1000px;
+            background-size: auto;
             
         }
 /* filter: saturate(3); 
