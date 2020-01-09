@@ -87,7 +87,11 @@ filter: opacity(40%);  */
             font-size:50px;
             border-radius: 5px;
             margin: 7.5px 10px;
+            
 
+        }
+        #icon i{
+            color: red;
         }
     </style>
 </head>
@@ -95,12 +99,15 @@ filter: opacity(40%);  */
     
     <!-- <img src="BGImage.jpg" alt="BackGroundImage" height = "1280" widght = "720"> -->
     <h1>Database TA</h1><h2>WINGSTOP</h2> 
-    <div class="w3-padding w3-xlarge w3-teal">
-        <i class="fa fa-bars"></i>
+    <div id= "icon" class="w3-padding w3-xlarge w3-teal">
+        <i class="fa fa-bars" ></i>
         <i class="fa fa-close"></i>
         <i class="fa fa-arrow-left"></i>
         <i class="fa fa-search"></i>
-        Menu
+        <i class="fa fa-refresh"></i>
+        <i class="fa fa-arrow-right"></i>
+
+
     </div>
     <div class = "Menu"> 
         <br><br><br><br><br><br><br>
