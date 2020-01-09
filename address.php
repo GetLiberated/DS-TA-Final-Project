@@ -191,13 +191,13 @@
                 <th width="5%"><input type="text" name="country" required></th>
             </tr>
             <tr>
-                <th width="4%"></th>
-                <th width="6%"></th>
-                <th width="22%"></th>
-                <th width="5%"></th>
-                <th width="7%"></th>
-                <th width="7%"></th>
-                <th width="5%"><input class="submit" type="submit" value="Submit"></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><input class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>
