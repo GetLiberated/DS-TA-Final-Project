@@ -99,6 +99,7 @@ filter: opacity(40%);  */
         <i class="fa fa-bars"></i>
         <i class="fa fa-close"></i>
         <i class="fa fa-arrow-left"></i>
+        <i class="fa fa-search"></i>
         Menu
     </div>
     <div class = "Menu"> 
