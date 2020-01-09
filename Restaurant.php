@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Restaurant Database</title>
     <style>
+    @font-face {
+            font-family: ourFond;
+            src: url(LobsterTwo-Regular.ttf);
+            font-weight: bold;
+        }
         a {
             background-color: #3471eb;
             color: white;
@@ -42,6 +47,7 @@
             font-family: monospace;
             border-radius: 5px;
             font-size: 20px;
+            margin: 45px 5px;
             float: right;
         }
         .edit:hover {
@@ -95,11 +101,11 @@
         }
         .title {
             font-weight: bold;
-            font-family: monospace;
-            font-size: 20px;
+            font-family: ourFond;
+            font-size: 40px;
             display: inline-block;
             position: relative;
-            left: 50%;
+            left: 45%;
             transform: translateX(-50%);
         }
         .back{
