@@ -3,6 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Item Database</title>
     <style>
         a {
@@ -99,11 +102,18 @@
             left: 50%;
             transform: translateX(-50%);
         }
+        .back{
+            position: relative;
+            left: 1%;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
     <p id="debug"></p>
-    <a href="index.php">Back</a>
+    <div class = "back">
+        <a href="index.php"><i class="fa fa-arrow-left"></i></a>
+    </div>
     <p class="title">Item Database</p>
     <button onclick="editDatabase()" class="edit">Edit</button>
     <br><br>
