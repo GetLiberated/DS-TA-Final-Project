@@ -169,8 +169,9 @@
         ?>
     </table>
     <form action="" method="GET" id="insertForm" style="visibility: hidden;">
-        <table id="inserTable">
+        <table id="insertTable">
             <tr>
+                <th></th>
                 <th></th>
                 <th><input type="text" name="streetName" required></th>
                 <th><input type="number" name="zipCode" required></th>
@@ -179,6 +180,7 @@
                 <th><input type="text" name="country" required></th>
             </tr>
             <tr>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>

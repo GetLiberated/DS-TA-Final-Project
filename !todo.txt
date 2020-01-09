@@ -1,8 +1,9 @@
-- buat erd yg versi baru
-
-- RAW QUERY
+- RAW QUERY (done)
 - Group By, Order By (Select *, COUNT(*) from `table_name` Group By `column_name`)
-- Transaction Details
+- Transaction Details (done)
 - Mimic the Receipt/Invoice
+    - bikin total
 - Interface
     - bagusin menu (index.php)
+    - bikin search
+    - bikin edit
