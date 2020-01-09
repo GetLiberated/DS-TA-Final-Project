@@ -128,13 +128,13 @@
     <br><br>
     <table id ="database"> 
         <tr>
-            <th width="4%"></th>
-            <th width="6%">Restaurant ID</th>
-            <th width="12%">Restaurant Name</th>
-            <th width="6%">Address ID</th>
-            <th width="6%">Open Hours</th>
-            <th width="6%">Genre</th>
-            <th width="6%">Tax</th>
+            <th width="8%"></th>
+            <th width="10%">Restaurant ID</th>
+            <th width="24%">Restaurant Name</th>
+            <th width="10%">Address ID</th>
+            <th width="18%">Open Hours</th>
+            <th width="15%">Genre</th>
+            <th width="15%">Tax</th>
         </tr>
         <?php
             $id = $_GET["id"];
@@ -190,13 +190,13 @@
     <form action="" method="GET" id="insertForm" style="visibility: hidden;">
         <table id="inserTable">
             <tr>
-                <th width="4%"></th>
-                <th width="6%"></th>
-                <th width="12%"><input type="text" name="name" required></th>
-                <th width="6%"><input type="number" name="addressID" required></th>
-                <th width="6%"><input type="text" name="openHours" required></th>
-                <th width="6%"><input type="text" name="genre" required></th>
-                <th width="6%"><input type="number" name="tax" required></th>
+                <th width="8%"></th>
+                <th width="10%"></th>
+                <th width="24%"><input type="text" name="name" required></th>
+                <th width="10%"><input type="number" name="addressID" required></th>
+                <th width="18%"><input type="text" name="openHours" required></th>
+                <th width="15%"><input type="text" name="genre" required></th>
+                <th width="15%"><input type="number" name="tax" required></th>
             </tr>
             <tr>
                 <th></th>

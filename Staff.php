@@ -130,9 +130,9 @@
     <table id="database">
         <tr>
             <th width="8%"></th>
-            <th width="10%">Staff ID</th>
-            <th width="41%">Name</th>
-            <th width="41%">Restaurant ID</th>
+            <th width="30%">Staff ID</th>
+            <th width="31%">Name</th>
+            <th width="31%">Restaurant ID</th>
         </tr>
         <?php
             $id = $_GET["id"];
@@ -186,14 +186,16 @@
     <form action="" method="GET" id="insertForm" style="visibility: hidden;">
         <table id="inserTable">
             <tr>
-                <th></th>
-                <th><input type="text" name="name" required></th>
-                <th><input type="number" name="restaurantID" required></th>
+                <th width="8%"></th>
+                <th width="30%"></th>
+                <th width="31%"><input type="text" name="name" required></th>
+                <th width="31%"><input type="number" name="restaurantID" required></th>
             </tr>
             <tr>
-                <th></th>
-                <th></th>
-                <th><input class="submit" type="submit" value="Submit"></th>
+                <th width="8%"></th>
+                <th width="30%"></th>
+                <th width="31%"></th>
+                <th width="31%"><input class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>
