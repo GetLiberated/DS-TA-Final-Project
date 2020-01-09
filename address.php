@@ -3,8 +3,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Address Database</title>
     <style>
@@ -55,6 +53,7 @@
             font-size: 25px;
             text-align: left;
             border-radius: 5px;
+            table-layout: fixed;
         }
         th {
             background-color: #588c7e;
@@ -99,12 +98,13 @@
             font-size: 20px;
             display: inline-block;
             position: relative;
-            left: 50%;
+            left: 45%;
             transform: translateX(-50%);
         }
+        input {
+            width: 100%;
+        }
         .back{
-            position: relative;
-            left: 1%;
             display: inline-block;
         }
     </style>
@@ -120,13 +120,13 @@
     <br><br>
     <table id="database">
         <tr>
-            <th></th>
-            <th>Address ID</th>
-            <th>Street Name</th>
-            <th>Zip Code</th>
-            <th>Province</th>
-            <th>City</th>
-            <th>Country</th>
+            <th width="4%"></th>
+            <th width="6%">Address ID</th>
+            <th width="22%">Street Name</th>
+            <th width="5%">Zip Code</th>
+            <th width="7%">Province</th>
+            <th width="7%">City</th>
+            <th width="5%">Country</th>
         </tr>
         <?php
             $addressID = $_GET["addressID"];
@@ -182,22 +182,22 @@
     <form action="" method="GET" id="insertForm" style="visibility: hidden;">
         <table id="insertTable">
             <tr>
-                <th></th>
-                <th></th>
-                <th><input type="text" name="streetName" required></th>
-                <th><input type="number" name="zipCode" required></th>
-                <th><input type="text" name="province" required></th>
-                <th><input type="text" name="city" required></th>
-                <th><input type="text" name="country" required></th>
+                <th width="4%"></th>
+                <th width="6%"></th>
+                <th width="22%"><input type="text" name="streetName" required></th>
+                <th width="5%"><input type="number" name="zipCode" required></th>
+                <th width="7%"><input type="text" name="province" required></th>
+                <th width="7%"><input type="text" name="city" required></th>
+                <th width="5%"><input type="text" name="country" required></th>
             </tr>
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><input class="submit" type="submit" value="Submit"></th>
+                <th width="4%"></th>
+                <th width="6%"></th>
+                <th width="22%"></th>
+                <th width="5%"></th>
+                <th width="7%"></th>
+                <th width="7%"></th>
+                <th width="5%"><input class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>
