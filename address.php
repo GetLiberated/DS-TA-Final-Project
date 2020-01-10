@@ -198,7 +198,6 @@
                 <th width="10%"><input type="text" name="country" required></th>
             </tr>
             <tr>
-<<<<<<< HEAD
                 <th width="8%"></th>
                 <th width="10%"></th>
                 <th width="30%"></th>
@@ -206,15 +205,6 @@
                 <th width="16%"></th>
                 <th width="16%"></th>
                 <th width="10%"><input  class="submit" type="submit" value="Submit"></th>
-=======
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th><input class="submit" type="submit" value="Submit"></th>
->>>>>>> c79b17f5cbbc6f3eef110525cfa9227c573afcba
             </tr>
         </table>
     </form>
