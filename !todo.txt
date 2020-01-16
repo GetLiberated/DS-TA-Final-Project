@@ -4,6 +4,6 @@
 - Mimic the Receipt/Invoice
     - bikin total
 - Interface
+    - bikin login
     - bagusin menu (index.php)
     - bikin search
-    - bikin edit

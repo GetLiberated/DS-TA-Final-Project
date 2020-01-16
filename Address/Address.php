@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="dist/jquery.tabledit.js"></script>
     <title>Address Database</title>
     <style>
         @font-face {
@@ -109,6 +111,8 @@
         }
         input {
             width: 100%;
+            height: 50px;
+            font-size: 25px;
         }
         .back{
             border-radius : 10px;
@@ -119,7 +123,7 @@
 <body>
     <p id="debug"></p>
     <div class = "back">
-        <a href="index.php"><i class="fa fa-arrow-left"></i></a>    
+        <a href="../index.php"><i class="fa fa-arrow-left"></i></a>    
     </div>
 
     <p class="title">Address Database</p>
@@ -192,7 +196,7 @@
                 <th width="8%"></th>
                 <th width="10%"></th>
                 <th width="30%"><input type="text" name="streetName" required></th>
-                <th width="10%"><input type="number" name="zipCode" required></th>
+                <th width="10%"><input type="text" pattern="\d*" maxlength="5" minlength="5" name="zipCode" required></th>
                 <th width="16%"><input type="text" name="province" required></th>
                 <th width="16%"><input type="text" name="city" required></th>
                 <th width="10%"><input type="text" name="country" required></th>
@@ -224,8 +228,25 @@
                         x[i].style.visibility = 'hidden';
                     }
                 }
-                if (visible) { document.getElementById("insertForm").style.visibility = 'hidden'; }
-                else { document.getElementById("insertForm").style.visibility = 'visible'; }
+                if (visible) { 
+                    document.getElementById("insertForm").style.visibility = 'hidden';
+                    window.location.reload();
+                }
+                else { 
+                    document.getElementById("insertForm").style.visibility = 'visible';
+                    $(document).ready(function(){
+                        $('#database').Tabledit({
+                            deleteButton: false,
+                            editButton: false,   		
+                            columns: {
+                            identifier: [1, 'addressID'],                    
+                            editable: [[2, 'streetName'], [3, 'zipCode'], [4, 'province'], [5, 'city'], [6, 'country']]
+                            },
+                            hideIdentifier: false,
+                            url: 'live_edit.php'		
+                        });
+                    });
+                }
             }
         }
     </script>

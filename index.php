@@ -104,7 +104,7 @@ filter: opacity(40%);  */
     </div>
     <div class = "Menu"> 
         <br><br><br><br><br><br><br>
-        <a href="address.php">Address</a>
+        <a href="address/address.php">Address</a>
         <a href="transaction.php">Transaction</a>
         <a href="restaurant.php">Restaurant</a>
         <br>
