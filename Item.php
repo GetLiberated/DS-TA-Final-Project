@@ -219,8 +219,27 @@
                     }
                 }
                 if (visible) { document.getElementById("insertForm").style.visibility = 'hidden'; }
-                else { document.getElementById("insertForm").style.visibility = 'visible'; }
+                else { 
+                    document.getElementById("insertForm").style.visibility = 'visible'; 
+                    $(document).ready(function(){
+                        $('#database').TableEdit({
+                            deleteButton: false,
+                            editButton: false,
+                            columns: {
+                                identifier: [1, 'id'],
+                                editable: [[2, 'foodName'], [3, 'price'], [4, 'description']]
+                            },
+                            hideIdentifier: false,
+                            url: 'live_edit.php'
+                            });
+                        });
+                    })
+                }
             }
+        }
+
+        function searchDatabase(){
+            
         }
     </script>
 </body>

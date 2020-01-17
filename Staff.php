@@ -215,7 +215,21 @@
                     }
                 }
                 if (visible) { document.getElementById("insertForm").style.visibility = 'hidden'; }
-                else { document.getElementById("insertForm").style.visibility = 'visible'; }
+                else { 
+                    document.getElementById("insertForm").style.visibility = 'visible'; 
+                    $(document).ready(function(){
+                        $('#database').TableEdit({
+                            deleteButton: false,
+                            editButton: false,   		
+                            columns: {
+                                identifier: [1, 'name'],                    
+                                editable: [[2, 'staffID'], [3, 'restaurantID']]
+                            },
+                            hideIdentifier: false,
+                            url: 'live_edit.php'		
+                        });
+                    });
+                }
             }
         }
     </script>   

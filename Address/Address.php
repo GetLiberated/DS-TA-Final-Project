@@ -235,12 +235,12 @@
                 else { 
                     document.getElementById("insertForm").style.visibility = 'visible';
                     $(document).ready(function(){
-                        $('#database').Tabledit({
+                        $('#database').TableEdit({
                             deleteButton: false,
                             editButton: false,   		
                             columns: {
-                            identifier: [1, 'addressID'],                    
-                            editable: [[2, 'streetName'], [3, 'zipCode'], [4, 'province'], [5, 'city'], [6, 'country']]
+                                identifier: [1, 'addressID'],                    
+                                editable: [[2, 'streetName'], [3, 'zipCode'], [4, 'province'], [5, 'city'], [6, 'country']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'		
