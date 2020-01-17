@@ -1,7 +1,7 @@
 # Database Systems TA Final Project
 ## Group 8
 - Muhammad Erizky S - 2201797052
-- Livander Surya
+- Livander Surya - 2201796384
 - Winson Wardana
 
 ## Contribution

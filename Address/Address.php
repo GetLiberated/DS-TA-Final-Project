@@ -246,7 +246,7 @@
                             url: 'live_edit.php'		
                         });
                     });
-                }
+                } 
             }
         }
     </script>
