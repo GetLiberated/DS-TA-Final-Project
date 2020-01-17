@@ -227,8 +227,8 @@
                             deleteButton: false,
                             editButton: false,   		
                             columns: {
-                                identifier: [1, 'itemID'],                    
-                                editable: [[2, 'transactionID'], [3, 'quantity']]
+                                identifier: [1, 'transactionDetailID'],                    
+                                editable: [[2, 'itemID'],[3, 'transactionID'], [4, 'quantity']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'		

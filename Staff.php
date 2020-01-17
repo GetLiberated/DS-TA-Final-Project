@@ -222,8 +222,8 @@
                             deleteButton: false,
                             editButton: false,   		
                             columns: {
-                                identifier: [1, 'name'],                    
-                                editable: [[2, 'staffID'], [3, 'restaurantID']]
+                                identifier: [1, 'staffID'],                    
+                                editable: [[2, 'name'], [3, 'restaurantID']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'		
