@@ -167,7 +167,7 @@
 
     <div class= "input-group" id = "inputGroup">
         <!-- <i class="fa fa-search" id = "search_icon"></i> -->
-        <input class="form-control" type="search_text" placeholder="Search for Keywords..">      
+        <input class="form-control" id="search" type="search_text" placeholder="Search for Keywords..">      
     </div>
     <br><br>
     <table id="database">
@@ -290,3 +290,33 @@
     </script>
 </body>
 </html>
+
+<script>
+$(document).ready(function(){
+	load_data();
+	function load_data(query)
+	{
+		$.ajax({
+			url:"fetch.php",
+			method:"post",
+			data:{query:query},
+			success:function(data)
+			{
+				$('#database').html(data);
+			}
+		});
+	}
+	
+	$('#search').keyup(function(){
+		var search = $(this).val();
+		if(search != '')
+		{
+			load_data(search);
+		}
+		else
+		{
+			load_data();			
+		}
+	});
+});
+</script>
