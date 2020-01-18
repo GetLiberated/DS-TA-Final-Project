@@ -117,9 +117,41 @@
         .back{
             display: inline-block;
         }
-        input {
-             width: 100%;
-         }
+        #search_button{
+            background-color: #b8b8b8;
+            color: white;
+            padding: 13px 25px;
+            text-align: center; 
+            text-decoration: none;
+            display: inline-block;
+            /* font-weight: bold; */
+            /* font-family: monospace; */
+            border-radius: 5px;
+            font-size: 24.8px;
+            margin: 45px 5px;
+            float: right;
+            
+        }
+        #search_button:hover{
+            background-color: #8a8a8a;
+        }
+
+        #search_icon{
+            float: right;
+            display: inline-block;
+            width: 100%; 
+            margin-bottom: 10px; 
+            
+
+        }
+        .form-control {
+            font-size:14px;
+        }
+        .input-group{
+            display :none;
+            /* visibility: hidden;   */
+        }
+
     </style>
 </head>
 <body>
@@ -128,7 +160,14 @@
         <a href="../index.php"><i class="fa fa-arrow-left"></i></a>
     </div>
     <p class="title">Restaurant Database</p>
+    <button onclick="Search()" class="fa fa-search" id="search_button"  ></button>
     <button onclick="editDatabase()" class="edit">Edit</button>
+
+    <div class= "input-group" id = "inputGroup">
+        <!-- <i class="fa fa-search" id = "search_icon"></i> -->
+        <input class="form-control" type="search_text" placeholder="Search for Keywords..">      
+    </div>
+    
     <br><br>
     <table id ="database"> 
         <tr>
@@ -217,6 +256,8 @@
         function editDatabase() {
             // document.getElementById("debug").innerHTML = "it works";
             var table = document.getElementById("database");
+            var searchInput = document.getElementById("inputGroup");
+            searchInput.style.display= 'none';    
             if (table.rows.length != 1) {
                 var visible = false;
                 var x = document.getElementsByClassName('delete');
@@ -246,6 +287,10 @@
                     });
                 }
             }
+        }
+        function Search() {
+            var searchInput = document.getElementById("inputGroup");
+            searchInput.style.display= 'unset';        
         }
     </script>
 </body>
