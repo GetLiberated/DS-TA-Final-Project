@@ -6,4 +6,3 @@
 - Interface
     - bikin login
     - bagusin menu (index.php)
-    - bikin search
