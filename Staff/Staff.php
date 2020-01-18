@@ -222,7 +222,7 @@
                 else { 
                     document.getElementById("insertForm").style.visibility = 'visible'; 
                     $(document).ready(function(){
-                        $('#database').TableEdit({
+                        $('#database').Tabledit({
                             deleteButton: false,
                             editButton: false,   		
                             columns: {
