@@ -105,12 +105,12 @@ filter: opacity(40%);  */
     <div class = "Menu"> 
         <br><br><br><br><br><br><br>
         <a href="address/address.php">Address</a>
-        <a href="transaction.php">Transaction</a>
-        <a href="restaurant.php">Restaurant</a>
+        <a href="transaction/transaction.php">Transaction</a>
+        <a href="restaurant/restaurant.php">Restaurant</a>
         <br>
-        <a href="staff.php">Staff</a>
-        <a href="item.php">Item</a>
-        <a href="transactionDetail.php">Transaction Detail</a>
+        <a href="staff/staff.php">Staff</a>
+        <a href="Item/item.php">Item</a>
+        <a href="transactionDetail/transactionDetail.php">Transaction Detail</a>
         <br><br><br>
         <p><i class="w3-jumbo w3-spin fa fa-home"></i></p>
         

@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="dist/jquery.tabledit.js"></script>
     <title>Staff Database</title>
     <style>
     @font-face {
@@ -110,6 +112,8 @@
         }
         input {
             width: 100%;
+            height: 50px;
+            font-size: 25px;
         }
         .back{
             position: relative;
@@ -121,7 +125,7 @@
 <body>
     <p id="debug"></p>
     <div class = "back">
-        <a href="index.php"><i class="fa fa-arrow-left"></i></a>
+        <a href="../index.php"><i class="fa fa-arrow-left"></i></a>
     </div>
     <p class="title">Staff Database</p>
     <button onclick="editDatabase()" class="edit">Edit</button>

@@ -6,10 +6,11 @@
 
 ## Contribution
 - Winson (Create tables)
-- Livander (ERD, Homepage, Modify template)
+- Livander (ERD, Homepage, Modify template, TUKANG COPY for all table)
 - Eris (The rest of it.)
 
 ### Source
-- [Font]()
-- [Image]()
+- [Font](https://www.dafont.com/lobster.font)
+- [Image](image.google.com)
 - [Live edit table code](https://www.phpzag.com/create-live-editable-table-with-jquery-php-and-mysql/)
+
