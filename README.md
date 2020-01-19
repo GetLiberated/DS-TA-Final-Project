@@ -2,7 +2,7 @@
 ## Group 8
 - Muhammad Erizky S - 2201797052
 - Livander Surya - 2201796384
-- Winson Wardana
+- Winson Wardana - 2201798345
 
 ## Contribution
 - Winson (Create tables)
