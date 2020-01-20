@@ -9,6 +9,8 @@ if ($input['action'] == 'edit') {
 	$update_field='';
 	if(isset($input['streetName'])) {
 		$update_field.= "streetName='".$input['streetName']."'";
+	} else if(isset($input['location'])) {
+		$update_field.= "location='".$input['location']."'";
 	} else if(isset($input['zipCode'])) {
 		$update_field.= "zipCode='".$input['zipCode']."'";
 	} else if(isset($input['province'])) {

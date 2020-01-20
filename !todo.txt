@@ -6,3 +6,4 @@
 - Interface
     - bikin login
     - bagusin menu ~Menu sudah terlalu bagus, it's my master piece <- apa ini
+- not null autis

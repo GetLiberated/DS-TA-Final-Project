@@ -184,11 +184,12 @@
         <tr>
             <th width="8%"></th>
             <th width="10%">Address ID</th>
-            <th width="30%">Street Name</th>
-            <th width="10%">Zip Code</th>
-            <th width="16%">Province</th>
-            <th width="16%">City</th>
-            <th width="10%">Country</th>
+            <th width="15%">Location</th>
+            <th width="24%">Street Name</th>
+            <th width="7%">Zip Code</th>
+            <th width="13%">Province</th>
+            <th width="13">City</th>
+            <th width="11%">Country</th>
         </tr>
         <?php
             $addressID = $_GET["addressID"];
@@ -216,8 +217,8 @@
                 die("Connection failed: " . $conn->connect_error);
             } 
 
-            $sql = "INSERT INTO Address (streetName, zipCode, province, city, country)
-            VALUES (\"" . $streetName . "\",\"" . $zipCode . "\",\"" . $province . "\",\"" . $city . "\",\"" . $country . "\")";
+            $sql = "INSERT INTO Address (streetName, zipCode, province, city, country, location)
+            VALUES (\"" . $streetName . "\",\"" . $zipCode . "\",\"" . $province . "\",\"" . $city . "\",\"" . $country . "\",\"" . $location . "\")";
 
             if ($streetName != "") $conn->query($sql);
 
@@ -234,7 +235,7 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"addressID\" value=\"" . $row["addressID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["addressID"]. "</td><td>" . $row["streetName"]. "</td><td>" . $row["zipCode"]. "</td><td>" . $row["province"]. "</td><td>" . $row["city"]. "</td><td>" . $row["country"]. "</td></tr>";
+                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"addressID\" value=\"" . $row["addressID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["addressID"]. "</td><td>" . $row["streetName"]. "</td><td>" . $row["zipCode"]. "</td><td>" . $row["province"]. "</td><td>" . $row["city"]. "</td><td>" . $row["country"]. "</td><td>" . $row["location"]. "</td></tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
@@ -246,20 +247,22 @@
             <tr>
                 <th width="8%"></th>
                 <th width="10%"></th>
-                <th width="30%"><input type="text" name="streetName" required></th>
-                <th width="10%"><input type="text" pattern="\d*" maxlength="5" minlength="5" name="zipCode" required></th>
-                <th width="16%"><input type="text" name="province" required></th>
-                <th width="16%"><input type="text" name="city" required></th>
-                <th width="10%"><input type="text" name="country" required></th>
+                <th width="15%"><input type="text" name="location" required></th>
+                <th width="24%"><input type="text" name="streetName" required></th>
+                <th width="7%"><input type="text" pattern="\d*" maxlength="5" minlength="5" name="zipCode" required></th>
+                <th width="13%"><input type="text" name="province" required></th>
+                <th width="13%"><input type="text" name="city" required></th>
+                <th width="11%"><input type="text" name="country" required></th>
             </tr>
             <tr>
                 <th width="8%"></th>
                 <th width="10%"></th>
-                <th width="30%"></th>
-                <th width="10%"></th>
-                <th width="16%"></th>
-                <th width="16%"></th>
-                <th width="10%"><input  class="submit" type="submit" value="Submit"></th>
+                <th width="15%"></th>
+                <th width="4%"></th>
+                <th width="7%"></th>
+                <th width="13%"></th>
+                <th width="13%"></th>
+                <th width="11%"><input  class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>
@@ -298,7 +301,7 @@
                             editButton: false,   		
                             columns: {
                             identifier: [1, 'addressID'],                    
-                            editable: [[2, 'streetName'], [3, 'zipCode'], [4, 'province'], [5, 'city'], [6, 'country']]
+                            editable: [[2, 'streetName'], [3, 'zipCode'], [4, 'province'], [5, 'city'], [6, 'country'], [7, 'location']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'		

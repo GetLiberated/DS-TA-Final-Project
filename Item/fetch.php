@@ -9,6 +9,7 @@ if(isset($_POST["query"]))
 	WHERE foodName LIKE '%".$search."%'
 	OR price LIKE '%".$search."%' 
 	OR description LIKE '%".$search."%' 
+	OR category LIKE '%".$search."%' 
 	OR id LIKE '%".$search."%' 
 	";
 }
@@ -24,9 +25,10 @@ if(mysqli_num_rows($result) > 0)
 					<tr>
 						<th width="8%"></th>
 						<th width="10%">Item ID</th>
-						<th width="30%">Food Name</th>
+						<th width="20%">Food Name</th>
+						<th width="20%">Food Category</th>
 						<th width="12%">Price</th>
-						<th width="40%">Description</th>
+						<th width="30%">Description</th>
 					</tr>';
 	while($row = mysqli_fetch_array($result))
 	{
@@ -37,6 +39,7 @@ if(mysqli_num_rows($result) > 0)
 				<td>'.$row["foodName"].'</td>
 				<td>'.$row["price"].'</td>
 				<td>'.$row["description"].'</td>
+				<td>'.$row["category"].'</td>
 			</tr>
 		';
 	}
