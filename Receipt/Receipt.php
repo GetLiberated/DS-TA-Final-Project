@@ -138,12 +138,14 @@
                     WHERE Transaction.transactionID = ".$id."";
         $result = mysqli_query($connect, $query);
         $output = '';
+        $date = '';
         $income = 0;
         $paymentName = '';
         $tax = 0;
         if(mysqli_num_rows($result) != 0)
         {
             $row = mysqli_fetch_array($result);
+            $date = $row["date"];
             $output .= '
                         <div id="invoice">
                             <p id="normal" style="text-align: center">WINGSTOP '.$row["location"].'</p>
@@ -157,7 +159,7 @@
                             <p id="normal">--------------------------------------------------------</p>
                             <p id="normal" style="display: inline-block;">CHK '.$row["transactionID"].'</p>
                             <p id="normal" style="float: right; display: inline-block;">'.$row["customer"].'</p>
-                            <p id="normal" style="text-align: center">'.$row["date"].'</p>
+                            <p id="normal" style="text-align: center">'.$date.'</p>
                             <p id="normal">--------------------------------------------------------</p>
                             <p id="wide" style="text-align: center">Dine In</p>
                             <div style="margin-left: 10px;">
@@ -219,7 +221,7 @@
                             <br>
                             <br>
                             <p id="normal">-----------------------Check Closed---------------------</p>
-                            <p id="normal" style="text-align: center">Date</p>
+                            <p id="normal" style="text-align: center">'.$date.'</p>
                             <br>
                             <p id="normal" style="text-align: center">Thank You! Tell us how we did today</p>
                             <p id="normal" style="text-align: center">Take our Guest Survet at:</p>
