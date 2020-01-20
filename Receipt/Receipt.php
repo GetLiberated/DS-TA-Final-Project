@@ -212,7 +212,7 @@
                             <br>
                             <p id="normal" style="text-align: center">Thank You! Tell us how we did today</p>
                             <p id="normal" style="text-align: center">Bla bla bla</p>
-                            <p id="normal" style="text-align: center">PS: lanjutin van</p>
+                            <p id="normal" style="text-align: center">PS: lanjutin son</p>
                         ';
             echo $output;
         }
