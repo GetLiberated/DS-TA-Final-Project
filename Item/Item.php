@@ -181,9 +181,10 @@
         <tr>
             <th width="8%"></th>
             <th width="10%">Item ID</th>
-            <th width="30%">Food Name</th>
+            <th width="20%">Food Name</th>
+            <th width="20%">Food Category</th>
             <th width="12%">Price</th>
-            <th width="40%">Description</th>
+            <th width="30%">Description</th>
         </tr>
         <?php
             $id = $_GET["id"];
@@ -211,8 +212,8 @@
                     die("Connection failed: " . $conn->connect_error);
                 } 
 
-                $sql = "INSERT INTO Item (foodName, price, description)
-                VALUES (\"" . $foodName . "\",\"" . $price . "\",\"" . $description. "\")";
+                $sql = "INSERT INTO Item (foodName, price, description, category)
+                VALUES (\"" . $foodName . "\",\"" . $price . "\",\"" . $description. "\",\"" . $category. "\")";
 
                 if ($foodName != "") $conn->query($sql);
 
@@ -240,16 +241,18 @@
             <tr>
                 <th width="8%"></th>
                 <th width="10%"></th>
-                <th width="30%"><input type="text" name="foodName" required></th>
+                <th width="20%"><input type="text" name="foodName" required></th>
+                <th width="20%"><input type="text" name="category" required></th>
                 <th width="12%"><input type="number" name="price" required></th>
-                <th width="40%"><input type="text" name="description" required></th>
+                <th width="30%"><input type="text" name="description" required></th>
             </tr>
             <tr>
                 <th width="8%"></th>
                 <th width="10%"></th>
-                <th width="30%"></th>
+                <th width="20%"></th>
+                <th width="20%"></th>
                 <th width="12%"></th>
-                <th width="40%"> <input  class="submit" type="submit" value="Submit"></th>
+                <th width="30%"> <input  class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>

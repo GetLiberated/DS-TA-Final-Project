@@ -185,11 +185,11 @@
             <th width="8%"></th>
             <th width="10%">Address ID</th>
             <th width="15%">Location</th>
-            <th width="27%">Street Name</th>
+            <th width="24%">Street Name</th>
             <th width="7%">Zip Code</th>
             <th width="13%">Province</th>
             <th width="13">City</th>
-            <th width="7%">Country</th>
+            <th width="11%">Country</th>
         </tr>
         <?php
             $addressID = $_GET["addressID"];
@@ -248,21 +248,21 @@
                 <th width="8%"></th>
                 <th width="10%"></th>
                 <th width="15%"><input type="text" name="location" required></th>
-                <th width="27%"><input type="text" name="streetName" required></th>
+                <th width="24%"><input type="text" name="streetName" required></th>
                 <th width="7%"><input type="text" pattern="\d*" maxlength="5" minlength="5" name="zipCode" required></th>
                 <th width="13%"><input type="text" name="province" required></th>
                 <th width="13%"><input type="text" name="city" required></th>
-                <th width="7%"><input type="text" name="country" required></th>
+                <th width="11%"><input type="text" name="country" required></th>
             </tr>
             <tr>
                 <th width="8%"></th>
                 <th width="10%"></th>
                 <th width="15%"></th>
-                <th width="27%"></th>
+                <th width="4%"></th>
                 <th width="7%"></th>
                 <th width="13%"></th>
                 <th width="13%"></th>
-                <th width="7%"><input  class="submit" type="submit" value="Submit"></th>
+                <th width="11%"><input  class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>

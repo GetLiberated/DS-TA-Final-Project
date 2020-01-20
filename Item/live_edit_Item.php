@@ -9,6 +9,8 @@ if ($input['action'] == 'edit') {
 	$update_field='';
 	if(isset($input['foodName'])) {
 		$update_field.= "foodName='".$input['foodName']."'";
+	} else if(isset($input['category'])) {
+		$update_field.= "category'".$input['category']."'";
 	} else if(isset($input['price'])) {
 		$update_field.= "price='".$input['price']."'";
 	} else if(isset($input['description'])) {

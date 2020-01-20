@@ -129,7 +129,7 @@
         if ($id == '') {
             $id = 1;
         }
-        $connect = mysqli_connect("dbta.1ez.xyz", "MUH7052", "8qlnrwkp", "8_groupDB");
+        $connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
         $query = "SELECT *, Staff.name AS sname, Restaurant.name AS rname FROM Transaction
                     INNER JOIN Staff ON Transaction.staffID = Staff.staffID
                     INNER JOIN Restaurant ON Staff.restaurantID = Restaurant.restaurantID

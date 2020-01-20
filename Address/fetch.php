@@ -28,11 +28,11 @@ if(mysqli_num_rows($result) > 0)
 						<th width="8%"></th>
 						<th width="10%">Address ID</th>
 						<th width="15%">Location</th>
-						<th width="27%">Street Name</th>
+						<th width="24%">Street Name</th>
 						<th width="7%">Zip Code</th>
 						<th width="13%">Province</th>
 						<th width="13%">City</th>
-						<th width="7%">Country</th>
+						<th width="11%">Country</th>
 					</tr>';
 	while($row = mysqli_fetch_array($result))
 	{
