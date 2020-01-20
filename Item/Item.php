@@ -9,6 +9,12 @@
     <script type="text/javascript" src="dist/jquery.tabledit.js"></script>
     <title>Item Database</title>
     <style>
+        body {  
+            background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url("logo1.jpg");
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-position:320 -10;         
+        }
     @font-face {
             font-family: ourFond;
             src: url(LobsterTwo-Regular.ttf);
@@ -256,7 +262,7 @@
             searchInput.style.display= 'none';    
             var searchButton = document.getElementById("search_button");
             searchButton.style.visibility = 'hidden';
-            
+
             if (table.rows.length != 1) {
                 var visible = false;
                 var x = document.getElementsByClassName('delete');

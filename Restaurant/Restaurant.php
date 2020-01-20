@@ -8,6 +8,12 @@
     <script type="text/javascript" src="dist/jquery.tabledit.js"></script>
     <title>Restaurant Database</title>
     <style>
+        body {  
+            background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url("logo1.jpg");
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-position:320 -10;         
+        }
     @font-face {
             font-family: ourFond;
             src: url(LobsterTwo-Regular.ttf);
