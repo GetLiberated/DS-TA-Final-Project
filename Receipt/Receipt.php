@@ -223,15 +223,15 @@
                             <br>
                             <p id="normal" style="text-align: center">Thank You! Tell us how we did today</p>
                             <p id="normal" style="text-align: center">Take our Guest Survet at:</p>
-                            <p id="normal" style="text-align: center">www.mywingstopsurveyidn.com/p>
+                            <p id="normal" style="text-align: center">www.mywingstopsurveyidn.com</p>
                             <p id="normal" style="text-align: center">within 5 days to receive</p>
                             <p id="normal" style="text-align: center">FREE MUSHROOM FRITTERS on your next</p>
                             <p id="normal" style="text-align: center">combo purchase</p>
-                            <p id="normal" style="text-align: center">Write your validation code below</p>
+                            <p id="normal" style="text-align: center">Write your validation code below<:/p>
                             <br>
                             <br>
-                            <p id="normal" style="text-align: center"________________________________</p>
-                            <p id="normal" style="text-align: center">*The Free Offers expires 30 days free</p>
+                            <p id="normal" style="text-align: center">―――――――――――――――――――</p>
+                            <p id="normal" style="text-align: center">*The Free Offers expires 30 days from</p>
                             <p id="normal" style="text-align: center">the data on this receipt</p>
                             <p id="normal" style="text-align: center">Follow us on</p>
                             <p id="normal" style="text-align: center">Instagram, FB, Twitter @WingstopID</p>
