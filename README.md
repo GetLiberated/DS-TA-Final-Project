@@ -5,8 +5,8 @@
 - Winson Wardana - 2201798345
 
 ## Contribution
-- Winson (Create tables)
-- Livander (ERD, Homepage, Modify template, TUKANG COPY for all table)
+- Winson (Create tables, Login)
+- Livander (Home, ERD, Decoration, Search UI, TUKANG COPY for all table)
 - Eris (The rest of it.)
 
 ### Source

@@ -5,4 +5,4 @@
     - bikin total
 - Interface
     - bikin login
-    - bagusin menu (index.php) ~Menu sudah terlalu bagus, it's my master piece
+    - bagusin menu ~Menu sudah terlalu bagus, it's my master piece <- apa ini
