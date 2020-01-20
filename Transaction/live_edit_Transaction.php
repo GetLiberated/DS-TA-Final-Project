@@ -9,11 +9,13 @@ if ($input['action'] == 'edit') {
 	$update_field='';
 	if(isset($input['total'])) {
 		$update_field.= "total='".$input['total']."'";
-	} else if(isset($input['restaurantID'])) {
-		$update_field.= "restaurantID='".$input['restaurantID']."'";
+	} else if(isset($input['date'])) {
+		$update_field.= "date='".$input['date']."'";
 	} else if(isset($input['staffID'])) {
 		$update_field.= "staffID='".$input['staffID']."'";
-	} 	
+	} else if(isset($input['customer'])) {
+		$update_field.= "customer='".$input['customer']."'";
+	} 		
 	if($update_field && $input['transactionID']) {
 		$sql_query = "UPDATE Address SET $update_field WHERE transactionID='" . $input['transactionID'] . "'";	
 		mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));		

@@ -25,7 +25,7 @@ filter: hue-rotate(180deg);
 filter: opacity(40%);  */
             /*Filter styles*/
 
-        }
+        
 
         .Menu {
             height: 100%;

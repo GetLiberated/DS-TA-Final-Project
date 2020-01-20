@@ -9,6 +9,12 @@
     <script type="text/javascript" src="dist/jquery.tabledit.js"></script>
     <title>Transaction Detail</title>
     <style>
+        body {  
+            background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url("logo1.jpg");
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-position:top left;        
+        }   
     @font-face {
             font-family: ourFond;
             src: url(LobsterTwo-Regular.ttf);
@@ -173,10 +179,11 @@
     <table id="database">
         <tr>
             <th width="8%"></th>
-            <th width="27%">Transaction ID</th>
-            <th width="30%">Total</th>
-            <th width="17%">Restaurant ID</th>
-            <th width="18%">Staff ID</th>
+            <th width="24%">Transaction ID</th>
+            <th width="27%">Total</th>
+            <th width="14%">Date</th>
+            <th width="15%">Staff ID</th>
+            <th width="12%">Customer</th>
         </tr>
         <?php
             $id= $_GET["id"];
@@ -194,8 +201,9 @@
         ?>
         <?php
             $total = $_GET["total"];
-            $restaurantID = $_GET["restaurantID"];
+            $date = $_GET["date"];
             $staffID = $_GET["staffID"];
+            $customer = $_GET["customer"];
            
 
             $conn = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
@@ -203,8 +211,8 @@
                 die("Connection failed: " . $conn->connect_error);
             } 
 
-            $sql = "INSERT INTO Transaction (total, restaurantID, staffID)
-            VALUES (\"" . $total . "\",\"" . $restaurantID . "\",\"" . $staffID . "\")";
+            $sql = "INSERT INTO Transaction (total, date, staffID, customer)
+            VALUES (\"" . $total . "\",\"" . $date . "\",\"" . $staffID . "\",\"" . $customer . "\")";
 
             if ($total != "") $conn->query($sql);
 
@@ -221,7 +229,7 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["transactionID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["transactionID"]. "</td><td>" . $row["total"]. "</td><td>" . $row["restaurantID"]."</td><td>" . $row["staffID"]."</td></tr>";
+                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["transactionID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["transactionID"]. "</td><td>" . $row["total"]. "</td><td>" . $row["date"]."</td><td>" . $row["staffID"]."</td><td>" . $row["customer"]."</td></tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
@@ -232,18 +240,19 @@
         <table id="inserTable">
             <tr>
                 <th width="8%"></th>
-                <th width="27%"></th>
-                <th width="30%"><input type="number" name="total" required></th>
-                <th width="17%"><input type="number" name="restaurantID" required></th>
-                <th width="18%"><input type="number" name="staffID" required></th>
+                <th width="24%"></th>
+                <th width="27%"><input type="number" name="total" required></th>
+                <th width="14%"><input type="number" name="date" required></th>
+                <th width="15%"><input type="number" name="staffID" required></th>
+                <th width="12%"><input type="number" name="customer" required></th>
 
             </tr>
             <tr>
                 <th width="8%"></th>
+                <th width="24%"></th>
                 <th width="27%"></th>
-                <th width="30%"></th>
-                <th width="17%"></th>
-                <th width="18%"><input class="submit" type="submit" value="Submit"></th>
+                <th width="14%"></th>
+                <th width="15%"><input class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>
@@ -251,8 +260,12 @@
         function editDatabase() {
             // document.getElementById("debug").innerHTML = "it works";
             var table = document.getElementById("database");
+            
             var searchInput = document.getElementById("inputGroup");
             searchInput.style.display= 'none';    
+            var searchButton = document.getElementById("search_button");
+            searchButton.style.visibility = 'hidden';
+             
             if (table.rows.length != 1) {
                 var visible = false;
                 var x = document.getElementsByClassName('delete');
@@ -274,7 +287,7 @@
                             editButton: false,   		
                             columns: {
                                 identifier: [1, 'transactionID'],                    
-                                editable: [[2, 'total'], [3, 'restaurantID'], [4, 'staffID']]
+                                editable: [[2, 'total'], [3, 'date'], [4, 'staffID'], [5, 'customer']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'		
