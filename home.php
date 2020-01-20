@@ -111,6 +111,8 @@ filter: opacity(40%);  */
         <a href="staff/staff.php">Staff</a>
         <a href="Item/item.php">Item</a>
         <a href="transactionDetail/transactionDetail.php">Transaction Detail</a>
+        <br>
+        <a href="receipt/receipt.php">Receipt</a>
         <br><br><br>
         <p><i class="w3-jumbo w3-spin fa fa-home"></i></p>
         
