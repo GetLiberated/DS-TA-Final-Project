@@ -130,35 +130,42 @@
             $id = 1;
         }
         $connect = mysqli_connect("dbta.1ez.xyz", "MUH7052", "8qlnrwkp", "8_groupDB");
-        $query = "SELECT *, Staff.name AS sname, Restaurant.name AS rname FROM Transaction
+        $query = "SELECT *, Payment.name AS pname FROM Transaction
+                    INNER JOIN Payment ON Transaction.paymentID = Payment.paymentID
                     INNER JOIN Staff ON Transaction.staffID = Staff.staffID
                     INNER JOIN Restaurant ON Staff.restaurantID = Restaurant.restaurantID
                     INNER JOIN Address ON Restaurant.addressID = Address.addressID
                     WHERE Transaction.transactionID = ".$id."";
         $result = mysqli_query($connect, $query);
         $output = '';
+        $income = 0;
+        $paymentName = '';
+        $tax = 0;
         if(mysqli_num_rows($result) != 0)
         {
             $row = mysqli_fetch_array($result);
             $output .= '
                         <div id="invoice">
-                            <p id="normal" style="text-align: center">WINGSTOP '.$row["rname"].'</p>
+                            <p id="normal" style="text-align: center">WINGSTOP '.$row["location"].'</p>
                             <p id="normal" style="text-align: center">FX Lifestyle Center</p>
                             <p id="normal" style="text-align: center">'.$row["streetName"].'</p>
-                            <p id="normal" style="text-align: center">Telp '.$row["telp"].'</p>
+                            <p id="normal" style="text-align: center">Telp '.$row["phone"].'</p>
                             <p id="normal" style="text-align: center">'.$row["city"].'</p>
 
-                            <p id="normal" style="text-align: left">'.$row["staffID"].' '.$row["sname"].'</p>
+                            <p id="normal" style="text-align: left">'.$row["staffID"].' '.$row["name"].'</p>
                             <p id="normal" style="text-align: right">WS#:   1001</p>
                             <p id="normal">--------------------------------------------------------</p>
                             <p id="normal" style="display: inline-block;">CHK '.$row["transactionID"].'</p>
-                            <p id="normal" style="float: right; display: inline-block;">Name</p>
-                            <p id="normal" style="text-align: center">Date</p>
+                            <p id="normal" style="float: right; display: inline-block;">'.$row["customer"].'</p>
+                            <p id="normal" style="text-align: center">'.$row["date"].'</p>
                             <p id="normal">--------------------------------------------------------</p>
                             <p id="wide" style="text-align: center">Dine In</p>
                             <div style="margin-left: 10px;">
                         ';
             echo $output;
+            $income = $row["income"];
+            $paymentName = $row["pname"];
+            $tax = $row["tax"];
         }
         else
         {
@@ -166,7 +173,7 @@
         }
         $query = "SELECT Item.*, COUNT(*) c FROM TransactionDetail
                     INNER JOIN Item ON TransactionDetail.itemID = Item.id
-                    WHERE TransactionDetail.transactionID = 1
+                    WHERE TransactionDetail.transactionID = ".$id."
                     GROUP BY TransactionDetail.itemID";
         $result = mysqli_query($connect, $query);
         $output = '';
@@ -174,7 +181,6 @@
         {
             $food = 0;
             $beverage = 0;
-            $tax = 0;
             $total = 0;
             while($row = mysqli_fetch_array($result)) {
                 $output .= '
@@ -182,11 +188,16 @@
                                 <p id="normal" style="float: right; display: inline-block;">'.$row["price"].'</p>
                             ';
                 $total += $row["price"];
+                if ($row["category"] == "food") {
+                    $food += $row["price"];
+                } else {
+                    $beverage += $row["price"];
+                }
             }
             $output .= '
                             <div style="margin-left: 20px;">
-                            <p id="normal" style="display: inline-block; word-wrap: break-word; width: 300px;">Payment'.$row["payment"].'</p>
-                            <p id="normal" style="float: right; display: inline-block;">Rp'.$row["price"].'</p>
+                            <p id="normal" style="display: inline-block; word-wrap: break-word; width: 300px;">'.$paymentName.'</p>
+                            <p id="normal" style="float: right; display: inline-block;">Rp'.number_format($food).'</p>
                             <p id="normal" style="text-align: left">001053 wtf is this</p>
                             <br>
                             <p id="normal" style="display: inline-block;">Food</p>
@@ -196,7 +207,7 @@
                             <p id="normal" style="float: right; display: inline-block;">Rp'.number_format($beverage)."<br>".'</p>
                             <br>
                             <p id="normal" style="display: inline-block;">PB1</p>
-                            <p id="normal" style="float: right; display: inline-block;">Rp'.number_format($tax)."<br>".'</p>
+                            <p id="normal" style="float: right; display: inline-block;">Rp'.number_format(($total*$tax)/100)."<br>".'</p>
                             <br>
                             </div>
                             </div>
@@ -204,7 +215,7 @@
                             <p id="wide" style="float: right; display: inline-block;">Rp'.number_format($total)."<br>".'</p>
                             <br>
                             <p id="wide" style="display: inline-block;">Change Due</p>
-                            <p id="wide" style="float: right; display: inline-block;">Rp0</p>
+                            <p id="wide" style="float: right; display: inline-block;">Rp'.number_format($income-$total)."<br>".'</p>
                             <br>
                             <br>
                             <p id="normal">-----------------------Check Closed---------------------</p>
