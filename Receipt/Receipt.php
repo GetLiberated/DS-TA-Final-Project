@@ -222,7 +222,7 @@
                             <p id="normal" style="text-align: center">Date</p>
                             <br>
                             <p id="normal" style="text-align: center">Thank You! Tell us how we did today</p>
-                            <p id="normal" style="text-align: center">Take our Guest Survet at:</p>
+                            <p id="normal" style="text-align: center">Take our Guest Survey at:</p>
                             <p id="normal" style="text-align: center">www.mywingstopsurveyidn.com</p>
                             <p id="normal" style="text-align: center">within 5 days to receive</p>
                             <p id="normal" style="text-align: center">FREE MUSHROOM FRITTERS on your next</p>
@@ -232,7 +232,7 @@
                             <br>
                             <p id="normal" style="text-align: center">―――――――――――――――――――</p>
                             <p id="normal" style="text-align: center">*The Free Offers expires 30 days from</p>
-                            <p id="normal" style="text-align: center">the data on this receipt</p>
+                            <p id="normal" style="text-align: center">the date on this receipt</p>
                             <p id="normal" style="text-align: center">Follow us on</p>
                             <p id="normal" style="text-align: center">Instagram, FB, Twitter @WingstopID</p>
                             <p id="normal" style="text-align: center">Delivery Thru GO-FOOD</p>
