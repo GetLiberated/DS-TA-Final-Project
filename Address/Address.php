@@ -259,10 +259,15 @@
     </form>
     <script>
         function editDatabase() {
+            
             // document.getElementById("debug").innerHTML = "it works";
             var table = document.getElementById("database");
+            
             var searchInput = document.getElementById("inputGroup");
             searchInput.style.display= 'none';    
+            var searchButton = document.getElementById("search_button");
+            searchButton.style.visibility = 'hidden';
+              
             if (table.rows.length != 1) {
                 var visible = false;
                 var x = document.getElementsByClassName('delete');
