@@ -27,7 +27,7 @@ if(mysqli_num_rows($result) > 0)
 						<th width="8%"></th>
 						<th width="10%">Restaurant ID</th>
 						<th width="24%">Restaurant Name</th>
-						<th width="10%">Address IDe</th>
+						<th width="10%">Address ID</th>
 						<th width="18%">Open Hours</th>
 						<th width="15%">Genre</th>
 						<th width="15%">Tax</th>

@@ -12,8 +12,8 @@
             background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url("logo1.jpg");
             background-repeat: no-repeat;
             background-size: auto;
-            background-position:320 -10;         
-            }
+            background-position:top left;         
+        }   
         @font-face {
             font-family: ourFond;
             src: url(LobsterTwo-Regular.ttf);
