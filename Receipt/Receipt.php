@@ -229,10 +229,10 @@
                             <p id="normal" style="text-align: center">within 5 days to receive</p>
                             <p id="normal" style="text-align: center">FREE MUSHROOM FRITTERS on your next</p>
                             <p id="normal" style="text-align: center">combo purchase</p>
-                            <p id="normal" style="text-align: center">Write your validation code below<:/p>
+                            <p id="normal" style="text-align: center">Write your validation code below:</p>
                             <br>
                             <br>
-                            <p id="normal" style="text-align: center">―――――――――――――――――――</p>
+                            <p id="normal" style="text-align: center">――――――――――――――――</p>
                             <p id="normal" style="text-align: center">*The Free Offers expires 30 days from</p>
                             <p id="normal" style="text-align: center">the date on this receipt</p>
                             <p id="normal" style="text-align: center">Follow us on</p>
