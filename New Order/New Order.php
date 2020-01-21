@@ -241,6 +241,10 @@
             margin: 20px;
             padding: 20px;
         }
+        form {
+            margin: 0px !important;
+            padding: 0px !important;
+        }
     </style>
 </head>
 <body>
@@ -250,9 +254,12 @@
     <p class="title">New Order</p>
     <button id="checkout">Checkout</button>
     <br>
+    <form method="POST" action="">
     <table id="order">
 
     </table>
+    <input type="submit" style="display: none">
+    </form>
     <div class="menu">
     
     </div>
