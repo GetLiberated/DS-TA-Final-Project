@@ -13,11 +13,9 @@ if ($input['action'] == 'edit') {
 		$update_field.= "category'".$input['category']."'";
 	} else if(isset($input['price'])) {
 		$update_field.= "price='".$input['price']."'";
-	} else if(isset($input['description'])) {
-		$update_field.= "description='".$input['description']."'";
 	} 	
 	if($update_field && $input['id']) {
-		$sql_query = "UPDATE Address SET $update_field WHERE id='" . $input['id'] . "'";	
+		$sql_query = "UPDATE Item SET $update_field WHERE id='" . $input['id'] . "'";	
 		mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));		
 	}
 }

@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta phone="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -179,7 +179,7 @@
         <tr>
             <th width="8%"></th>
             <th width="10%">Restaurant ID</th>
-            <th width="24%">Restaurant Name</th>
+            <th width="24%">Phone Number</th>
             <th width="10%">Address ID</th>
             <th width="18%">Open Hours</th>
             <th width="15%">Genre</th>
@@ -200,7 +200,7 @@
             $conn->close();
         ?>
         <?php
-                $name = $_GET["name"];
+                $phone = $_GET["phone"];
                 $addressID = $_GET["addressID"];
                 $openHours = $_GET["openHours"];
                 $genre = $_GET["genre"];
@@ -212,10 +212,10 @@
                     die("Connection failed: " . $conn->connect_error);
                 } 
 
-                $sql = "INSERT INTO Restaurant (name, addressID, openHours, genre, tax)
-                VALUES (\"" . $name . "\",\"" . $addressID . "\",\"" . $openHours . "\",\"" . $genre . "\",\"". $tax . "\")";
+                $sql = "INSERT INTO Restaurant (phone, addressID, openHours, genre, tax)
+                VALUES (\"" . $phone . "\",\"" . $addressID . "\",\"" . $openHours . "\",\"" . $genre . "\",\"". $tax . "\")";
 
-                if ($name != "") $conn->query($sql);
+                if ($phone != "") $conn->query($sql);
 
                 $conn->close();
             ?>
@@ -229,7 +229,7 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["id"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["restaurantID"]. "</td><td>" . $row["name"]. "</td><td>" . $row["addressID"]. "</td><td>" . $row["openHours"]. "</td><td>" . $row["genre"]."</td><td>" .$row["tax"]. "</td></tr>";
+                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" phone=\"id\" value=\"" . $row["id"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["restaurantID"]. "</td><td>" . $row["phone"]. "</td><td>" . $row["addressID"]. "</td><td>" . $row["openHours"]. "</td><td>" . $row["genre"]."</td><td>" .$row["tax"]. "</td></tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
@@ -241,7 +241,7 @@
             <tr>
                 <th width="8%"></th>
                 <th width="10%"></th>
-                <th width="24%"><input type="text" name="name" required></th>
+                <th width="24%"><input type="text" name="phone" required></th>
                 <th width="10%"><input type="number" name="addressID" required></th>
                 <th width="18%"><input type="text" name="openHours" required></th>
                 <th width="15%"><input type="text" name="genre" required></th>
@@ -270,7 +270,7 @@
                
             if (table.rows.length != 1) {
                 var visible = false;
-                var x = document.getElementsByClassName('delete');
+                var x = document.getElementsByClassphone('delete');
                 for (var i = 0, length = x.length; i < length; i++) {
                     if (x[i].style.visibility === 'hidden' || x[i].style.visibility === '') {
                         visible = false;
@@ -289,7 +289,7 @@
                             editButton: false,   		
                             columns: {
                                 identifier: [1, 'restaurantID'],                    
-                                editable: [[2, 'name'], [3, 'addressID'], [4, 'openHours'], [5, 'genre'], [6, 'tax']]
+                                editable: [[2, 'phone'], [3, 'addressID'], [4, 'openHours'], [5, 'genre'], [6, 'tax']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'		

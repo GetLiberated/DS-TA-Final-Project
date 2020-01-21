@@ -13,7 +13,7 @@ if ($input['action'] == 'edit') {
 		$update_field.= "restaurantID='".$input['restaurantID']."'";
 	} 
 	if($update_field && $input['staffID']) {
-		$sql_query = "UPDATE Address SET $update_field WHERE staffID='" . $input['staffID'] . "'";	
+		$sql_query = "UPDATE Staff SET $update_field WHERE staffID='" . $input['staffID'] . "'";	
 		mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));		
 	}
 }

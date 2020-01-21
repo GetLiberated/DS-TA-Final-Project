@@ -7,8 +7,8 @@ if (mysqli_connect_errno()) {
 $input = filter_input_array(INPUT_POST);
 if ($input['action'] == 'edit') {	
 	$update_field='';
-	if(isset($input['name'])) {
-		$update_field.= "name='".$input['name']."'";
+	if(isset($input['phone'])) {
+		$update_field.= "phone='".$input['phone']."'";
 	} else if(isset($input['addressID'])) {
 		$update_field.= "addressID='".$input['addressID']."'";
 	} else if(isset($input['openHours'])) {
@@ -19,7 +19,7 @@ if ($input['action'] == 'edit') {
 		$update_field.= "tax='".$input['tax']."'";
 	} 	
 	if($update_field && $input['restaurantID']) {
-		$sql_query = "UPDATE Address SET $update_field WHERE restaurantID='" . $input['restaurantID'] . "'";	
+		$sql_query = "UPDATE Restaurant SET $update_field WHERE restaurantID='" . $input['restaurantID'] . "'";	
 		mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));		
 	}
 }

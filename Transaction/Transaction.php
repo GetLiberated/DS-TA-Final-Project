@@ -179,42 +179,43 @@
     <table id="database">
         <tr>
             <th width="8%"></th>
-            <th width="24%">Transaction ID</th>
-            <th width="27%">Total</th>
-            <th width="14%">Date</th>
-            <th width="15%">Staff ID</th>
-            <th width="12%">Customer</th>
+            <th width="21%">Transaction ID</th>
+            <th width="24%">Income</th>
+            <th width="13%">Date</th>
+            <th width="13%">Staff ID</th>
+            <th width="19%">Customer</th>
+            <th width="12%">Payment ID</th>
         </tr>
         <?php
-            $id= $_GET["id"];
+            $TransactionID= $_GET["TransactionID"];
 
             $conn = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             } 
 
-            $sql = "DELETE FROM Transaction WHERE id=" . $id;
+            $sql = "DELETE FROM Transaction WHERE TransactionID=" . $TransactionID;
 
             if ($id != "") $conn->query($sql);
 
             $conn->close();
         ?>
         <?php
-            $total = $_GET["total"];
+            $income = $_GET["income"];
             $date = $_GET["date"];
             $staffID = $_GET["staffID"];
             $customer = $_GET["customer"];
-           
+            $paymentID = $_GET["paymentID"];
 
             $conn = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             } 
 
-            $sql = "INSERT INTO Transaction (total, date, staffID, customer)
-            VALUES (\"" . $total . "\",\"" . $date . "\",\"" . $staffID . "\",\"" . $customer . "\")";
+            $sql = "INSERT INTO Transaction (income, date, staffID, customer, paymentID)
+            VALUES (\"" . $income . "\",\"" . $date . "\",\"" . $staffID . "\",\"" . $customer . "\",\"" . $paymentID . "\")";
 
-            if ($total != "") $conn->query($sql);
+            if ($income != "") $conn->query($sql);
 
             $conn->close();
         ?>
@@ -229,7 +230,7 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["transactionID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["transactionID"]. "</td><td>" . $row["total"]. "</td><td>" . $row["date"]."</td><td>" . $row["staffID"]."</td><td>" . $row["customer"]."</td></tr>";
+                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["transactionID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["transactionID"]. "</td><td>" . $row["income"]. "</td><td>" . $row["date"]."</td><td>" . $row["staffID"]."</td><td>" . $row["customer"]."</td><td>" . $row["paymentID"]."</td></tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
@@ -240,19 +241,22 @@
         <table id="inserTable">
             <tr>
                 <th width="8%"></th>
-                <th width="24%"></th>
-                <th width="27%"><input type="number" name="total" required></th>
-                <th width="14%"><input type="number" name="date" required></th>
-                <th width="15%"><input type="number" name="staffID" required></th>
-                <th width="12%"><input type="number" name="customer" required></th>
+                <th width="21%"></th>
+                <th width="24%"><input type="number" name="income" required></th>
+                <th width="13%"><input type="number" name="date" required></th>
+                <th width="13%"><input type="number" name="staffID" required></th>
+                <th width="19%"><input type="number" name="customer" required></th>
+                <th width="12%"><input type="number" name="paymentID" required></th>
 
             </tr>
             <tr>
                 <th width="8%"></th>
+                <th width="21%"></th>
                 <th width="24%"></th>
-                <th width="27%"></th>
-                <th width="14%"></th>
-                <th width="15%"><input class="submit" type="submit" value="Submit"></th>
+                <th width="13%"></th>
+                <th width="13%"></th>
+                <th width="19%"></th>
+                <th width="12%"><input class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>
@@ -287,7 +291,7 @@
                             editButton: false,   		
                             columns: {
                                 identifier: [1, 'transactionID'],                    
-                                editable: [[2, 'total'], [3, 'date'], [4, 'staffID'], [5, 'customer']]
+                                editable: [[2, 'income'], [3, 'date'], [4, 'staffID'], [5, 'customer'], [5, 'paymentID']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'		

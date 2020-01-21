@@ -180,11 +180,10 @@
     <table id ="database"> 
         <tr>
             <th width="8%"></th>
-            <th width="10%">Item ID</th>
-            <th width="20%">Food Name</th>
-            <th width="20%">Food Category</th>
-            <th width="12%">Price</th>
-            <th width="30%">Description</th>
+            <th width="17%">Item ID</th>
+            <th width="27%">Food Name</th>
+            <th width="28%">Food Category</th>
+            <th width="20%">Price</th>
         </tr>
         <?php
             $id = $_GET["id"];
@@ -213,7 +212,7 @@
                 } 
 
                 $sql = "INSERT INTO Item (foodName, category, price, description, )
-                VALUES (\"" . $foodName . "\",\"" . $category. "\",\"" . $price . "\",\"" . $description. "\")";
+                VALUES (\"" . $foodName . "\",\"" . $category. "\",\"" . $price . "\")";
 
                 if ($foodName != "") $conn->query($sql);
 
@@ -229,7 +228,7 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["id"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["id"]. "</td><td>" . $row["foodName"]. "</td><td>" . $row["category"]. "</td><td>" . $row["price"].  "</td><td>" . $row["description"].  "</td></tr>";
+                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["id"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["id"]. "</td><td>" . $row["foodName"]. "</td><td>" . $row["category"]. "</td><td>" . $row["price"].  "</td></tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
@@ -240,19 +239,17 @@
         <table id="inserTable">
             <tr>
                 <th width="8%"></th>
-                <th width="10%"></th>
-                <th width="20%"><input type="text" name="foodName" required></th>
-                <th width="20%"><input type="text" name="category" required></th>
-                <th width="12%"><input type="number" name="price" required></th>
-                <th width="30%"><input type="text" name="description" required></th>
+                <th width="17%"></th>
+                <th width="27%"><input type="text" name="foodName" required></th>
+                <th width="28%"><input type="text" name="category" required></th>
+                <th width="20%"><input type="number" name="price" required></th>
             </tr>
             <tr>
                 <th width="8%"></th>
-                <th width="10%"></th>
-                <th width="20%"></th>
-                <th width="20%"></th>
-                <th width="12%"></th>
-                <th width="30%"> <input  class="submit" type="submit" value="Submit"></th>
+                <th width="17%"></th>
+                <th width="27%"></th>
+                <th width="28%"></th>
+                <th width="20%"><input  class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>
@@ -287,7 +284,7 @@
                             editButton: false,
                             columns: {
                                 identifier: [1, 'id'],
-                                editable: [[2, 'foodName'], [3,'category' ], [4, 'price' ], [5, 'description']]
+                                editable: [[2, 'foodName'], [3,'category' ], [4, 'price' ]]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'

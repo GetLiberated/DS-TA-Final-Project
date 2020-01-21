@@ -180,10 +180,11 @@
     <table id="database">
         <tr>
             <th width="8%"></th>
-            <th width="23%">Transaction Detail ID</th>
-            <th width="23%">Item ID</th>
-            <th width="23%">Transaction ID</th>
-            <th width="23%">Quantity</th>
+            <th width="17%">Transaction Detail ID</th>
+            <th width="17%">Item ID</th>
+            <th width="17%">Transaction ID</th>
+            <th width="17%">Quantity</th>
+            <th width="24%">Item Description</th>
         </tr>
         <?php
             $transactionDetailID= $_GET["transactionDetailID"];
@@ -203,6 +204,7 @@
             $itemID = $_GET["itemID"];
             $transactionID = $_GET["transactionID"];
             $quantity= $_GET["quantity"];
+            $quantity= $_GET["description"];
            
 
             $conn = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
@@ -210,8 +212,8 @@
                 die("Connection failed: " . $conn->connect_error);
             } 
 
-            $sql = "INSERT INTO TransactionDetail (itemID, transactionID, quantity)
-            VALUES (\"" . $itemID . "\",\"" . $transactionID . "\",\""  . $quantity . "\")";
+            $sql = "INSERT INTO TransactionDetail (itemID, transactionID, quantity, description)
+            VALUES (\"" . $itemID . "\",\"" . $transactionID . "\",\""  . $quantity . "\",\""  . $description . "\")";
 
             if ($itemID != "") $conn->query($sql);
 
@@ -239,18 +241,20 @@
         <table id="inserTable">
             <tr>
                 <th width="8%"></th>
-                <th width="23%"></th>
-                <th width="23%"><input type="number" name="itemID" required></th>
-                <th width="23%"><input type="number" name="transactionID" required></th>
-                <th width="23%"><input type="number" name="quantity" required></th>
+                <th width="17%"></th>
+                <th width="17%"><input type="number" name="itemID" required></th>
+                <th width="17%"><input type="number" name="transactionID" required></th>
+                <th width="17%"><input type="number" name="quantity" required></th>
+                <th width="24%"><input type="number" name="description" required></th>
 
             </tr>
             <tr>
                 <th width="8%"></th>
-                <th width="23%"></th>
-                <th width="23%"></th>
-                <th width="23%"></th>
-                <th width="23%"><input class="submit" type="submit" value="Submit"></th>
+                <th width="17%"></th>
+                <th width="17%"></th>
+                <th width="17%"></th>
+                <th width="17%"></th>
+                <th width="24%"><input class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>
@@ -285,7 +289,7 @@
                             editButton: false,   		
                             columns: {
                                 identifier: [1, 'transactionDetailID'],                    
-                                editable: [[2, 'itemID'],[3, 'transactionID'], [4, 'quantity']]
+                                editable: [[2, 'itemID'],[3, 'transactionID'], [4, 'quantity'],[5, 'description']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'		

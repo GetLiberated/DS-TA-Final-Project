@@ -6,7 +6,7 @@ if(isset($_POST["query"]))
 	$search = mysqli_real_escape_string($connect, $_POST["query"]);
 	$query = "
 	SELECT * FROM Restaurant 
-	WHERE name LIKE '%".$search."%'
+	WHERE phone LIKE '%".$search."%'
 	OR addressID LIKE '%".$search."%' 
 	OR openHours LIKE '%".$search."%' 
 	OR genre LIKE '%".$search."%' 
@@ -26,7 +26,7 @@ if(mysqli_num_rows($result) > 0)
 					<tr>
 						<th width="8%"></th>
 						<th width="10%">Restaurant ID</th>
-						<th width="24%">Restaurant Location</th>
+						<th width="24%">Phone Number</th>
 						<th width="10%">Address ID</th>
 						<th width="18%">Open Hours</th>
 						<th width="15%">Genre</th>
@@ -38,7 +38,7 @@ if(mysqli_num_rows($result) > 0)
 			<tr>
 				<td><form action="" method="GET"><input type="hidden" name="restaurantID" value="' . $row["restaurantID"] . '"><input class="delete" type="submit" value="-"></form></td>
 				<td>'.$row["restaurantID"].'</td>
-				<td>'.$row["name"].'</td>
+				<td>'.$row["phone"].'</td>
 				<td>'.$row["addressID"].'</td>
 				<td>'.$row["openHours"].'</td>
 				<td>'.$row["genre"].'</td>
