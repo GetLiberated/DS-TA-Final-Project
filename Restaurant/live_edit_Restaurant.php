@@ -7,8 +7,8 @@ if (mysqli_connect_errno()) {
 $input = filter_input_array(INPUT_POST);
 if ($input['action'] == 'edit') {	
 	$update_field='';
-	if(isset($input['name'])) {
-		$update_field.= "name='".$input['name']."'";
+	if(isset($input['phone'])) {
+		$update_field.= "phone='".$input['phone']."'";
 	} else if(isset($input['addressID'])) {
 		$update_field.= "addressID='".$input['addressID']."'";
 	} else if(isset($input['openHours'])) {
