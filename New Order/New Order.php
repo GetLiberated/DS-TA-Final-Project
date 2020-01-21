@@ -250,7 +250,7 @@
     <p class="title">New Order</p>
     <button id="checkout">Checkout</button>
     <br>
-            <form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
     <table id="order">
 
     </table>
@@ -272,7 +272,7 @@
                 <input name="customer" type="text" placeholder="Customer name">
                 <input name="date" type="text" placeholder="Date">
                 <br>
-                <input onclick="submit()" type="submit">
+                <input type="submit">
             </form>
             <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -364,11 +364,6 @@ window.onclick = function(event) {
     modal.style.display = "none";
     document.getElementById("descPopup").style.display = "none";
   }
-}
-
-function submit() {
-    document.forms["form1"].submit();
-    document.forms["form2"].submit();
 }
 
 function submitDesc() {
