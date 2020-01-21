@@ -55,7 +55,7 @@
         .back a:hover, a:active {
             background-color: #3456eb;
         }
-        .checkout {
+        #checkout {
             background-color: #04cc0a;
             color: white;
             padding: 14px 25px;
@@ -68,8 +68,9 @@
             font-size: 20px;
             margin: 35px 5px;
             float: right;
+            display:none;
         }
-        .checkout:hover {
+        #checkout:hover {
             background-color: #009e05;
         }
         table {
@@ -104,6 +105,19 @@
             overflow: hidden;
             outline:none;
         }
+        .desc {
+            background-color: #04cc0a;
+            color: white;
+            padding: 14px 25px;
+            text-align: center; 
+            font-weight: bold;
+            font-family: monospace;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .desc:hover {
+            background-color: #009e05;
+        }
         .menu {
             display: inline-block;
             float: right;
@@ -115,6 +129,7 @@
             margin: 10 0px;
             font-family: system-ui;
             font-size: 50px;
+            font-weight: bold;
         }
         .item {
             padding: 20px;
@@ -157,17 +172,74 @@
             -webkit-appearance: none;
             margin: 0;
         }
-        .popUp{
-            
-            display:none;
-            
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 400px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         }
-        /* .show{
-            display:block;
-            
-        } */
-        .checkout{
-            display:none;
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            font-family: system-ui;
+        }
+        #descPopup .modal-content {
+            width: 20% !important;
+        }
+        #checkoutPopup .modal-content {
+            height: 20% !important;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-content p {
+            margin: 10px;
+            font-family: system-ui;
+            font-size: 70px;
+            display: inline-block;
+        }
+        #payment {
+            display: inline-block;
+        }
+        .modal-content input {
+            font-family: system-ui;
+            font-size: 24px;
+            margin: 20px;
+            padding: 20px;
+            width: 40%;
+        }
+        #checkoutPopup .modal-content button {
+            font-family: system-ui;
+            font-size: 70px;
+            color: red;
+            margin: 20px;
+            padding: 20px;
         }
     </style>
 </head>
@@ -176,32 +248,87 @@
         <a href="../index.php"><i class="fa fa-arrow-left"></i></a>    
     </div>
     <p class="title">New Order</p>
-    <button onclick="checkout()" class="checkout" id="CheckOut">Checkout</button>
-    <h1 id="invisible" class="popUp">You Have Successfully Purchase!</h1>
+    <button id="checkout">Checkout</button>
     <br>
     <table id="order">
-        <tr>
-            <th width="4%"></th>
-            <th width="30%">Name</th>
-            <th width="10%">Quantity</th>
-            <th width="16%">Price</th>
-        </tr>
+
     </table>
     <div class="menu">
     
+    </div>
+
+    <div id="descPopup" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <textarea id="descTextarea" rows="10" cols="50" placeholder="Enter description..."></textarea>
+            <button onclick="submitDesc();">Done</button>
+        </div>
+    </div>
+
+    <div id="checkoutPopup" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <br>
+            <p style="font-weight: bold;">Total</p>
+            <p id="total" style="float: right;"></p>
+            <p style="float: right; padding-right: 5px;">Rp</p>
+            <br>
+            <select id="payment"></select>
+            <input id="income" type="text" placeholder="How much customer payed">
+            <br>
+            <input id="name" type="text" placeholder="Customer name">
+            <input id="date" type="text" placeholder="Date">
+            <br>
+            <button>DONE</button>
+        </div>
     </div>
 </body>
 </html>
 
 <script>
+var rowDesc = '';
+// Get the modal
+var modal = document.getElementById("checkoutPopup");
 
-    function checkout(){
-        var table= document.getElementById("database");
+// Get the button that opens the modal
+var btn = document.getElementById("checkout");
 
-        var popUpMessage = document.getElementById("invisible");
-        popUpMessage.style.display='block';
-        
-    }
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+  var table = document.getElementById('order');
+  var total = 0;
+  for (var i = 1, row; row = table.rows[i]; i++) {
+    total += parseInt(row.cells[4].innerText.substring(2));  
+  }
+  document.getElementById("total").innerHTML = total;
+}
+
+// When the user clicks on <span> (x), close the modal
+document.getElementsByClassName("close")[0].onclick = function() {
+  modal.style.display = "none";
+  document.getElementById("descPopup").style.display = "none";
+}
+document.getElementsByClassName("close")[1].onclick = function() {
+  modal.style.display = "none";
+  document.getElementById("descPopup").style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal || event.target == document.getElementById("descPopup")) {
+    modal.style.display = "none";
+    document.getElementById("descPopup").style.display = "none";
+  }
+}
+
+function submitDesc() {
+    rowDesc.innerHTML = document.getElementById("descTextarea").value;
+    document.getElementById("descPopup").style.display = "none";
+}
 
 $(document).ready(function(){
 	new_order();
@@ -229,12 +356,26 @@ $(document).ready(function(){
 				$('.menu').html(data);
 			}
 		});
+    }
+    load_payment();
+	function load_payment(query)
+	{
+		$.ajax({
+			url:"payment.php",
+			method:"post",
+			data:{query:query},
+			success:function(data)
+			{
+				$('#payment').html(data);
+			}
+		});
 	}
 });
 function order(e) {
-    var tableRef = document.getElementById('order').getElementsByTagName('tbody')[0];
-    var checkout = document.getElementById("CheckOut");
+    var checkout = document.getElementById("checkout");
     checkout.style.display = 'block';
+
+    var tableRef = document.getElementById('order').getElementsByTagName('tbody')[0];
     
     // Insert a row in the table at the last row
     var newRow   = tableRef.insertRow();
@@ -242,12 +383,21 @@ function order(e) {
     // Insert a cell in the row at index 0
     var newCell  = newRow.insertCell(0);
     // Append nodes to the cell
+    var id = e.getElementsByTagName('div')[0].innerHTML;
+    var hid  = document.createElement("p");
+    hid.className = "id";
+    hid.style = "display: none;";
+    hid.innerHTML = id;
+    newCell.appendChild(hid);
     var del  = document.createElement("button");
     del.innerHTML = "-";
     del.className = "delete";
     del.onclick = function () {
         var row = this.parentNode.parentNode;
         row.parentNode.removeChild(row);
+        if (document.getElementById('order').rows.length === 1) {
+            document.getElementById("checkout").style.display = 'none';
+        }
     };
     newCell.appendChild(del);
 
@@ -306,6 +456,22 @@ function order(e) {
     // Insert a cell in the row at index 3
     var newCell  = newRow.insertCell(3);
     // Append nodes to the cell
+    var descButton  = document.createElement("button");
+    descButton.innerHTML = "Add/Edit";
+    descButton.className = "desc";
+    descButton.onclick = function() {
+        document.getElementById("descPopup").style.display = "block";
+        rowDesc = this.parentNode.getElementsByTagName("p")[0];
+        document.getElementById("descTextarea").value = rowDesc.innerHTML;
+    }
+    newCell.appendChild(descButton);
+    var desc  = document.createElement("p");
+    desc.style = "display: none;";
+    newCell.appendChild(desc);
+
+    // Insert a cell in the row at index 4
+    var newCell  = newRow.insertCell(4);
+    // Append nodes to the cell
     var rp  = document.createElement("p");
     rp.style = "display: inline-block; padding-right: 5px;";
     rp.innerHTML = "Rp";
@@ -318,7 +484,7 @@ function order(e) {
     newCell.appendChild(p);
     var hp  = document.createElement("p");
     hp.className = "ogprice";
-    hp.style = "display: none;"
+    hp.style = "display: none;";
     hp.innerHTML = price;
     newCell.appendChild(hp);
 }
