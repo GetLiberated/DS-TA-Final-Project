@@ -288,7 +288,7 @@
                     INSERT INTO Transaction (income, date, staffID, customer, paymentID)
                     VALUES ('".$income."','".$date."','".$staffID."','".$customer."','".$paymentID."')
                     ";
-                    // $result = mysqli_query($connect, $query);
+                    $result = mysqli_query($connect, $query);
                     $query = "
                     SELECT transactionID FROM Transaction ORDER BY transactionID DESC LIMIT 1
                     ";
