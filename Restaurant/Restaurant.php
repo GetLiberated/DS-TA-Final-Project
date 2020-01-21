@@ -213,7 +213,7 @@
                 } 
 
                 $sql = "INSERT INTO Restaurant (name, addressID, openHours, genre, tax)
-                VALUES (\"" . $name . "\",\"" . $addressID . "\",\"" . $openHours . "\",\"" . $genre . "\",\"". $tax . "\)";
+                VALUES (\"" . $name . "\",\"" . $addressID . "\",\"" . $openHours . "\",\"" . $genre . "\",\"". $tax . "\")";
 
                 if ($name != "") $conn->query($sql);
 

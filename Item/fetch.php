@@ -7,9 +7,9 @@ if(isset($_POST["query"]))
 	$query = "
 	SELECT * FROM Item
 	WHERE foodName LIKE '%".$search."%'
+	OR category LIKE '%".$search."%' 
 	OR price LIKE '%".$search."%' 
 	OR description LIKE '%".$search."%' 
-	OR category LIKE '%".$search."%' 
 	OR id LIKE '%".$search."%' 
 	";
 }
@@ -37,9 +37,9 @@ if(mysqli_num_rows($result) > 0)
 				<td><form action="" method="GET"><input type="hidden" name="id" value="' . $row["id"] . '"><input class="delete" type="submit" value="-"></form></td>
 				<td>'.$row["id"].'</td>
 				<td>'.$row["foodName"].'</td>
+				<td>'.$row["category"].'</td>
 				<td>'.$row["price"].'</td>
 				<td>'.$row["description"].'</td>
-				<td>'.$row["category"].'</td>
 			</tr>
 		';
 	}

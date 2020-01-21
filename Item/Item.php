@@ -212,8 +212,8 @@
                     die("Connection failed: " . $conn->connect_error);
                 } 
 
-                $sql = "INSERT INTO Item (foodName, price, description, category)
-                VALUES (\"" . $foodName . "\",\"" . $price . "\",\"" . $description. "\",\"" . $category. "\")";
+                $sql = "INSERT INTO Item (foodName, category, price, description, )
+                VALUES (\"" . $foodName . "\",\"" . $category. "\",\"" . $price . "\",\"" . $description. "\")";
 
                 if ($foodName != "") $conn->query($sql);
 
@@ -229,7 +229,7 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["id"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["id"]. "</td><td>" . $row["foodName"]. "</td><td>" . $row["price"]. "</td><td>" . $row["description"].  "</td></tr>";
+                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["id"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["id"]. "</td><td>" . $row["foodName"]. "</td><td>" . $row["category"]. "</td><td>" . $row["price"].  "</td><td>" . $row["description"].  "</td></tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
@@ -287,7 +287,7 @@
                             editButton: false,
                             columns: {
                                 identifier: [1, 'id'],
-                                editable: [[2, 'foodName'], [3, 'price'], [4, 'description']]
+                                editable: [[2, 'foodName'], [3,'category' ], [4, 'price' ], [5, 'description']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'
