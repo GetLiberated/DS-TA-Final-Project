@@ -250,29 +250,18 @@
     <p class="title">New Order</p>
     <button id="checkout">Checkout</button>
     <br>
-    <form method="POST" action="" style="display: inline;">
+            <form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
     <table id="order">
 
     </table>
-    <input type="submit" style="display: none">
-    </form>
     <div class="menu">
     
     </div>
-
-    <div id="descPopup" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <textarea id="descTextarea" rows="10" cols="50" placeholder="Enter description..."></textarea>
-            <button onclick="submitDesc();">Done</button>
-        </div>
-    </div>
-
+    
     <div id="checkoutPopup" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <br>
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
                 <p style="font-weight: bold;">Total</p>
                 <p id="total" style="float: right;"></p>
                 <p style="float: right; padding-right: 5px;">Rp</p>
@@ -283,7 +272,7 @@
                 <input name="customer" type="text" placeholder="Customer name">
                 <input name="date" type="text" placeholder="Date">
                 <br>
-                <input type="submit">
+                <input onclick="submit()" type="submit">
             </form>
             <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -293,18 +282,47 @@
                     $staffID = 1;
                     $customer = htmlspecialchars($_REQUEST['customer']);
                     $paymentID = htmlspecialchars($_REQUEST['paymentID']);
-
+                    
                     $connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
                     $query = "
-                            INSERT INTO Transaction (income, date, staffID, customer, paymentID)
-                            VALUES ('".$income."','".$date."','".$staffID."','".$customer."','".$paymentID."')
-                            ";
+                    INSERT INTO Transaction (income, date, staffID, customer, paymentID)
+                    VALUES ('".$income."','".$date."','".$staffID."','".$customer."','".$paymentID."')
+                    ";
+                    // $result = mysqli_query($connect, $query);
+                    $query = "
+                    SELECT transactionID FROM Transaction ORDER BY transactionID DESC LIMIT 1
+                    ";
                     $result = mysqli_query($connect, $query);
+                    $transactionID = '';
+                    while($row = mysqli_fetch_array($result))
+                    {
+                        $transactionID = $row["transactionID"];
+                    }
+                    foreach ($_POST['id'] as $key => $value) 
+                    {
+                        $id = $_POST["id"][$key];
+                        $quantity = $_POST["quantity"][$key];
+                        $desc = $_POST["desc"][$key];
+                        
+                        $connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
+                        $query = "
+                        INSERT INTO TransactionDetail (itemID, transactionID, quantity, description)
+                        VALUES ('".$id."','".$transactionID."','".$quantity."','".$desc."')
+                        ";
+                        mysqli_query($connect, $query);
+                    }
                     mysqli_close($connect);
                 }
-            ?>
+                ?>
         </div>
     </div>
+                <div id="descPopup" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <textarea id="descTextarea" rows="10" cols="50" placeholder="Enter description..."></textarea>
+                        <button onclick="submitDesc();">Done</button>
+                    </div>
+                </div>
 </body>
 </html>
 
@@ -346,6 +364,11 @@ window.onclick = function(event) {
     modal.style.display = "none";
     document.getElementById("descPopup").style.display = "none";
   }
+}
+
+function submit() {
+    document.forms["form1"].submit();
+    document.forms["form2"].submit();
 }
 
 function submitDesc() {
@@ -487,11 +510,13 @@ function order(e) {
         document.getElementById("descPopup").style.display = "block";
         rowDesc = this.parentNode.getElementsByTagName("input")[0];
         document.getElementById("descTextarea").value = rowDesc.value;
+        return false;
     }
     newCell.appendChild(descButton);
     var desc  = document.createElement("input");
     desc.type = "hidden";
     desc.name = "desc[]";
+    desc.value = " ";
     newCell.appendChild(desc);
 
     // Insert a cell in the row at index 4
