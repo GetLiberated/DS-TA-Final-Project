@@ -3,19 +3,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="dist/jquery.tabledit.js"></script>
-    <title>Staff Database</title>
+    <title>Payment Database</title>
     <style>
         body {  
             background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url("logo1.jpg");
             background-repeat: no-repeat;
             background-size: auto;
-            background-position:top left;        
-        }
-    @font-face {
+            background-position:top left;         
+        }   
+        @font-face {
             font-family: ourFond;
             src: url(LobsterTwo-Regular.ttf);
             font-weight: bold;
@@ -43,6 +42,9 @@
             overflow: hidden;
             outline:none;
         }
+        .search {
+
+        }
         .edit {
             background-color: #b8b8b8;
             color: white;
@@ -57,6 +59,7 @@
             margin: 45px 5px;
             float: right;
         }
+        
         .edit:hover {
             background-color: #8a8a8a;
         }
@@ -122,8 +125,7 @@
             font-size: 25px;
         }
         .back{
-            position: relative;
-            left: 1%;
+            border-radius : 10px;
             display: inline-block;
         }
         #search_button{
@@ -165,52 +167,52 @@
 <body>
     <p id="debug"></p>
     <div class = "back">
-        <a href="../index.php"><i class="fa fa-arrow-left"></i></a>
+        <a href="../index.php"><i class="fa fa-arrow-left"></i></a>    
     </div>
-    <p class="title">Staff Database</p>
+
+    <p class="title">Payment Database</p>
     <button onclick="Search()" class="fa fa-search" id="search_button"  ></button>
-    <button onclick="editDatabase()" class="edit">Edit</button>
+    <button onclick="editDatabase()" class="edit">Edit </button>
 
     <div class= "input-group" id = "inputGroup">
         <!-- <i class="fa fa-search" id = "search_icon"></i> -->
         <input class="form-control" id="search" type="search_text" placeholder="Search for Keywords..">      
     </div>
+    
     <br><br>
     <table id="database">
         <tr>
             <th width="8%"></th>
-            <th width="30%">Staff ID</th>
-            <th width="31%">Name</th>
-            <th width="31%">Restaurant ID</th>
+            <th width="46%">Payment ID</th>
+            <th width="46%">Name</th>
+
         </tr>
         <?php
-            $staffID = $_GET["staffID"];
+            $paymentID = $_GET["paymentID"];
 
             $conn = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             } 
 
-            $sql = "DELETE FROM Staff WHERE staffID=" . $staffID;
+            $sql = "DELETE FROM Payment WHERE paymentID=" . $paymentID;
 
-            if ($staffID != "") $conn->query($sql);
+            if ($paymentID != "") $conn->query($sql);
 
             $conn->close();
         ?>
         <?php
-            $name = $_GET["name"];
-            $restaurantID = $_GET["restaurantID"];
-           
+            $name= $_GET["name"];
 
             $conn = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             } 
 
-            $sql = "INSERT INTO Staff (name, restaurantID)
-            VALUES (\"" . $name . "\",\"" . $restaurantID . "\")";
+            $sql = "INSERT INTO Payment (name)
+            VALUES (\"" . $name . "\")";
 
-            if ($name != "") $conn->query($sql);
+            if ($name!= "") $conn->query($sql);
 
             $conn->close();
         ?>
@@ -220,12 +222,12 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT * FROM Staff";
+            $sql = "SELECT * FROM Payment";
             
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["staffID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["staffID"]. "</td><td>" . $row["name"]. "</td><td>" . $row["restaurantID"]."</td></tr>";
+                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"paymentID\" value=\"" . $row["paymentID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["paymentID"]. "</td><td>" . $row["name"]. "</td></tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
@@ -233,23 +235,22 @@
         ?>
     </table>
     <form action="" method="GET" id="insertForm" style="visibility: hidden;">
-        <table id="inserTable">
+        <table id="insertTable">
             <tr>
                 <th width="8%"></th>
-                <th width="30%"></th>
-                <th width="31%"><input type="text" name="name" required></th>
-                <th width="31%"><input type="number" name="restaurantID" required></th>
+                <th width="46%"></th>
+                <th width="46%"><input type="text" name="name" required></th>
             </tr>
             <tr>
                 <th width="8%"></th>
-                <th width="30%"></th>
-                <th width="31%"></th>
-                <th width="31%"><input class="submit" type="submit" value="Submit"></th>
+                <th width="46%"></th>
+                <th width="46%"><input  class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>
     <script>
         function editDatabase() {
+            
             // document.getElementById("debug").innerHTML = "it works";
             var table = document.getElementById("database");
             
@@ -257,7 +258,7 @@
             searchInput.style.display= 'none';    
             var searchButton = document.getElementById("search_button");
             searchButton.style.visibility = 'hidden';
-               
+              
             if (table.rows.length != 1) {
                 var visible = false;
                 var x = document.getElementsByClassName('delete');
@@ -270,16 +271,19 @@
                         x[i].style.visibility = 'hidden';
                     }
                 }
-                if (visible) { document.getElementById("insertForm").style.visibility = 'hidden'; }
+                if (visible) { 
+                    document.getElementById("insertForm").style.visibility = 'hidden';
+                    window.location.reload();
+                }
                 else { 
-                    document.getElementById("insertForm").style.visibility = 'visible'; 
+                    document.getElementById("insertForm").style.visibility = 'visible';
                     $(document).ready(function(){
                         $('#database').Tabledit({
                             deleteButton: false,
                             editButton: false,   		
                             columns: {
-                                identifier: [1, 'staffID'],                    
-                                editable: [[2, 'name'], [3, 'restaurantID']]
+                            identifier: [1, 'paymentID'],                    
+                            editable: [[2, 'name'],]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'		
@@ -292,7 +296,7 @@
             var searchInput = document.getElementById("inputGroup");
             searchInput.style.display= 'unset';        
         }
-    </script>   
+    </script>
 </body>
 </html>
 

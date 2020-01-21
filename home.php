@@ -116,6 +116,7 @@ filter: opacity(40%);  */
         <br>
         <a href="receipt/receipt.php">Receipt</a>
         <a href="new order/new order.php">New Order</a>
+        <a href="payment/payment.php">Payment</a>
         <br><br><br>
         <!-- <p><i class="w3-jumbo w3-spin fa fa-home"></i></p> -->
         
