@@ -13,6 +13,8 @@ if ($input['action'] == 'edit') {
 		$update_field.= "transactionID='".$input['transactionID']."'";
 	} else if(isset($input['quantity'])) {
 		$update_field.= "quantity='".$input['quantity']."'";
+	} else if(isset($input['description'])) {
+		$update_field.= "description='".$input['description']."'";
 	} 	
 	if($update_field && $input['transactionDetailID']) {
 		$sql_query = "UPDATE Address SET $update_field WHERE transactionDetailID='" . $input['transactionDetailID'] . "'";	
