@@ -2,18 +2,15 @@
 $connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
 $output = '';
 $query = "
-		SELECT * FROM Item
+		SELECT * FROM Payment
 		";
 $result = mysqli_query($connect, $query);
 if(mysqli_num_rows($result) > 0)
 {
-	$output .= '<tr>
-					<th width="4%"></th>
-					<th width="28%">Name</th>
-					<th width="10%">Quantity</th>
-					<th width="10%">Description</th>
-					<th width="8%">Price</th>
-				</tr>';
+	while($row = mysqli_fetch_array($result))
+	{
+		$output .= '<option value="'.$row["name"].'">'.$row["name"].'</option>';
+	}
 	echo $output;
 }
 else
