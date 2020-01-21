@@ -97,7 +97,7 @@
                         $id = 1;
                     }
                     $connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
-                    $query = "SELECT transactionID FROM Transaction";
+                    $query = "SELECT transactionID FROM Transaction ORDER BY transactionID";
                     $result = mysqli_query($connect, $query);
                     $output = '';
                     if(mysqli_num_rows($result) != 0)
@@ -187,20 +187,21 @@
             while($row = mysqli_fetch_array($result)) {
                 $output .= '
                                 <p id="normal" style="display: inline-block; word-wrap: break-word; width: 300px;">'.$row["c"].' '.$row["foodName"].' '.$row["description"].'</p>
-                                <p id="normal" style="float: right; display: inline-block;">'.$row["price"].'</p>
+                                <p id="normal" style="float: right; display: inline-block;">'.($row["price"]*$row["c"]).'</p>
                             ';
-                $total += $row["price"];
+                $total += ($row["price"]*$row["c"]);
                 if ($row["category"] == "food") {
-                    $food += $row["price"];
+                    $food += ($row["price"]*$row["c"]);
                 } else {
-                    $beverage += $row["price"];
+                    $beverage += ($row["price"]*$row["c"]);
                 }
             }
+            $totalTax = ($total*$tax)/100;
             $output .= '
                             <div style="margin-left: 20px;">
                             <p id="normal" style="display: inline-block; word-wrap: break-word; width: 300px;">'.$paymentName.'</p>
-                            <p id="normal" style="float: right; display: inline-block;">Rp'.number_format($food).'</p>
-                            <p id="normal" style="text-align: left">001053 wtf is this</p>
+                            <p id="normal" style="float: right; display: inline-block;">Rp'.number_format($income).'</p>
+                            <p id="normal" style="text-align: left">'.rand(100000,999999).'</p>
                             <br>
                             <p id="normal" style="display: inline-block;">Food</p>
                             <p id="normal" style="float: right; display: inline-block;">Rp'.number_format($food)."<br>".'</p>
@@ -209,12 +210,12 @@
                             <p id="normal" style="float: right; display: inline-block;">Rp'.number_format($beverage)."<br>".'</p>
                             <br>
                             <p id="normal" style="display: inline-block;">PB1</p>
-                            <p id="normal" style="float: right; display: inline-block;">Rp'.number_format(($total*$tax)/100)."<br>".'</p>
+                            <p id="normal" style="float: right; display: inline-block;">Rp'.number_format($totalTax)."<br>".'</p>
                             <br>
                             </div>
                             </div>
                             <p id="wide" style="display: inline-block;">Total</p>
-                            <p id="wide" style="float: right; display: inline-block;">Rp'.number_format($total)."<br>".'</p>
+                            <p id="wide" style="float: right; display: inline-block;">Rp'.number_format($total+$totalTax)."<br>".'</p>
                             <br>
                             <p id="wide" style="display: inline-block;">Change Due</p>
                             <p id="wide" style="float: right; display: inline-block;">Rp'.number_format($income-$total)."<br>".'</p>
