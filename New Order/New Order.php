@@ -269,17 +269,37 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <br>
-            <p style="font-weight: bold;">Total</p>
-            <p id="total" style="float: right;"></p>
-            <p style="float: right; padding-right: 5px;">Rp</p>
-            <br>
-            <select id="payment"></select>
-            <input id="income" type="text" placeholder="How much customer payed">
-            <br>
-            <input id="name" type="text" placeholder="Customer name">
-            <input id="date" type="text" placeholder="Date">
-            <br>
-            <button>DONE</button>
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                <p style="font-weight: bold;">Total</p>
+                <p id="total" style="float: right;"></p>
+                <p style="float: right; padding-right: 5px;">Rp</p>
+                <br>
+                <select name="paymentID" id="payment"></select>
+                <input name="income" type="text" placeholder="How much customer payed">
+                <br>
+                <input name="customer" type="text" placeholder="Customer name">
+                <input name="date" type="text" placeholder="Date">
+                <br>
+                <input type="submit">
+            </form>
+            <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    // collect value of input field
+                    $income = htmlspecialchars($_REQUEST['income']);
+                    $date = htmlspecialchars($_REQUEST['date']);
+                    $staffID = 1;
+                    $customer = htmlspecialchars($_REQUEST['customer']);
+                    $paymentID = htmlspecialchars($_REQUEST['paymentID']);
+
+                    $connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
+                    $query = "
+                            INSERT INTO Transaction (income, date, staffID, customer, paymentID)
+                            VALUES ('".$income."','".$date."','".$staffID."','".$customer."','".$paymentID."')
+                            ";
+                    $result = mysqli_query($connect, $query);
+                    mysqli_close($connect);
+                }
+            ?>
         </div>
     </div>
 </body>

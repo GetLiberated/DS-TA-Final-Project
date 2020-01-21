@@ -9,7 +9,7 @@ if(mysqli_num_rows($result) > 0)
 {
 	while($row = mysqli_fetch_array($result))
 	{
-		$output .= '<option value="'.$row["name"].'">'.$row["name"].'</option>';
+		$output .= '<option value="'.$row["paymentID"].'">'.$row["name"].'</option>';
 	}
 	echo $output;
 }
