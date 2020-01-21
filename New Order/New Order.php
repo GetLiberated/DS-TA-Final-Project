@@ -55,6 +55,23 @@
         .back a:hover, a:active {
             background-color: #3456eb;
         }
+        .checkout {
+            background-color: #04cc0a;
+            color: white;
+            padding: 14px 25px;
+            text-align: center; 
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            font-family: monospace;
+            border-radius: 5px;
+            font-size: 20px;
+            margin: 35px 5px;
+            float: right;
+        }
+        .checkout:hover {
+            background-color: #009e05;
+        }
         table {
             border-collapse: collapse;
             width: 60%;
@@ -115,6 +132,26 @@
             width: 0px;
             background: transparent; /* make scrollbar transparent */
         }
+        span { cursor:pointer; }
+		.minus, .plus{
+			width:20px;
+			height:20px;
+			background:#f2f2f2;
+			padding:8px 5px 8px 5px;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+        }
+        input {
+            height:34px;
+            width: 50px;
+            text-align: center;
+            font-size: 26px;
+            border:1px solid #ddd;
+            border-radius:4px;
+            display: inline-block;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
@@ -122,6 +159,7 @@
         <a href="../index.php"><i class="fa fa-arrow-left"></i></a>    
     </div>
     <p class="title">New Order</p>
+    <button onclick="checkout()" class="checkout">Checkout</button>
     <br>
     <table id="order">
         <tr>
@@ -193,7 +231,34 @@ function order(e) {
     // Insert a cell in the row at index 2
     var newCell  = newRow.insertCell(2);
     // Append nodes to the cell
-    newCell.appendChild(document.createTextNode('1'));
+    var div = document.createElement("div");
+    var min = document.createElement("span");
+    min.innerHTML = "-";
+    min.className = "minus";
+    min.onclick = function () {
+        var $input = $(this).parent().find('input');
+        var count = parseInt($input.val()) - 1;
+        count = count < 1 ? 1 : count;
+        $input.val(count);
+        $input.change();
+        return false;
+    };
+    div.appendChild(min);
+    var text = document.createElement("input");
+    text.value = "1";
+    text.type = "text";
+    div.appendChild(text);
+    var plus = document.createElement("span");
+    plus.innerHTML = "+";
+    plus.className = "plus";
+    plus.onclick = function () {
+        var $input = $(this).parent().find('input');
+        $input.val(parseInt($input.val()) + 1);
+        $input.change();
+        return false;
+    };
+    div.appendChild(plus);
+    newCell.appendChild(div);
 
     // Insert a cell in the row at index 3
     var newCell  = newRow.insertCell(3);
