@@ -254,7 +254,8 @@
     <p class="title">New Order</p>
     <button id="checkout">Checkout</button>
     <br>
-    <form method="POST" action="">
+    <form method="POST" action="" style = "display:inline;">
+    
     <table id="order">
 
     </table>

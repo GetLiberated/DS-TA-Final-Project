@@ -26,7 +26,9 @@ filter: opacity(40%);  */
             /*Filter styles*/
 
         
-
+        .handclass:hover {
+            cursor: url('cursor.png');
+        }
         
         .Menu {
             /* height: 100%; */
