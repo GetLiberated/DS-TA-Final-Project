@@ -27,21 +27,23 @@ filter: opacity(40%);  */
 
         
 
+        
         .Menu {
-            height: 100%;
+            /* height: 100%; */
             color: blue;
             text-align: center;
             display: table;
             margin: auto;
-            display: table-cell;
+            display: table;
+            margin: 0 auto;
             vertical-align: middle; 
             position: relative;
-            left: 1000x;
+            /* left: 1000x; */
             /* /* border: 3px solid #73AD21; */
         }
         a {
             background-color: #008000;
-            /* float:center; */
+            float:center;
             color: white;
             padding: 14px 25px;
             text-align: center; 
@@ -50,10 +52,10 @@ filter: opacity(40%);  */
             font-weight: bold;
             font-family: monospace;
             border-radius: 5px;
-            font-size: 20px;
-            margin: 20px 20px;
-            position: relative;
-            left: 410px;
+            font-size: 30px;
+            margin-left: 20px;
+            margin-top : 20px;
+            position:relative;
             border: 1px solid #73AD21;
         }
 
@@ -115,7 +117,7 @@ filter: opacity(40%);  */
         <a href="receipt/receipt.php">Receipt</a>
         <a href="new order/new order.php">New Order</a>
         <br><br><br>
-        <p><i class="w3-jumbo w3-spin fa fa-home"></i></p>
+        <!-- <p><i class="w3-jumbo w3-spin fa fa-home"></i></p> -->
         
     </div>
 </body>

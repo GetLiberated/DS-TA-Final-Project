@@ -157,6 +157,18 @@
             -webkit-appearance: none;
             margin: 0;
         }
+        .popUp{
+            
+            display:none;
+            
+        }
+        /* .show{
+            display:block;
+            
+        } */
+        .checkout{
+            display:none;
+        }
     </style>
 </head>
 <body>
@@ -164,7 +176,8 @@
         <a href="../index.php"><i class="fa fa-arrow-left"></i></a>    
     </div>
     <p class="title">New Order</p>
-    <button onclick="checkout()" class="checkout">Checkout</button>
+    <button onclick="checkout()" class="checkout" id="CheckOut">Checkout</button>
+    <h1 id="invisible" class="popUp">You Have Successfully Purchase!</h1>
     <br>
     <table id="order">
         <tr>
@@ -181,6 +194,15 @@
 </html>
 
 <script>
+
+    function checkout(){
+        var table= document.getElementById("database");
+
+        var popUpMessage = document.getElementById("invisible");
+        popUpMessage.style.display='block';
+        
+    }
+
 $(document).ready(function(){
 	new_order();
 	function new_order(query)
@@ -211,7 +233,9 @@ $(document).ready(function(){
 });
 function order(e) {
     var tableRef = document.getElementById('order').getElementsByTagName('tbody')[0];
-
+    var checkout = document.getElementById("CheckOut");
+    checkout.style.display = 'block';
+    
     // Insert a row in the table at the last row
     var newRow   = tableRef.insertRow();
 
