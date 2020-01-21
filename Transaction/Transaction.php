@@ -241,20 +241,22 @@
         <table id="inserTable">
             <tr>
                 <th width="8%"></th>
-                <th width="24%"></th>
-                <th width="27%"><input type="number" name="income" required></th>
-                <th width="14%"><input type="number" name="date" required></th>
-                <th width="15%"><input type="number" name="staffID" required></th>
-                <th width="12%"><input type="number" name="customer" required></th>
-                <th width="12%"><input type="number" name="customer" required></th>
+                <th width="21%"></th>
+                <th width="24%"><input type="number" name="income" required></th>
+                <th width="13%"><input type="number" name="date" required></th>
+                <th width="13%"><input type="number" name="staffID" required></th>
+                <th width="19%"><input type="number" name="customer" required></th>
+                <th width="12%"><input type="number" name="paymentID" required></th>
 
             </tr>
             <tr>
                 <th width="8%"></th>
+                <th width="21%"></th>
                 <th width="24%"></th>
-                <th width="27%"></th>
-                <th width="14%"></th>
-                <th width="15%"><input class="submit" type="submit" value="Submit"></th>
+                <th width="13%"></th>
+                <th width="13%"></th>
+                <th width="19%"></th>
+                <th width="12%"><input class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>
@@ -289,7 +291,7 @@
                             editButton: false,   		
                             columns: {
                                 identifier: [1, 'transactionID'],                    
-                                editable: [[2, 'income'], [3, 'date'], [4, 'staffID'], [5, 'customer']]
+                                editable: [[2, 'income'], [3, 'date'], [4, 'staffID'], [5, 'customer'], [5, 'paymentID']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'		
