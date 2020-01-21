@@ -241,10 +241,6 @@
             margin: 20px;
             padding: 20px;
         }
-        form {
-            margin: 0px !important;
-            padding: 0px !important;
-        }
     </style>
 </head>
 <body>
@@ -254,7 +250,7 @@
     <p class="title">New Order</p>
     <button id="checkout">Checkout</button>
     <br>
-    <form method="POST" action="">
+    <form method="POST" action="" style="display: inline;">
     <table id="order">
 
     </table>
@@ -353,7 +349,7 @@ window.onclick = function(event) {
 }
 
 function submitDesc() {
-    rowDesc.innerHTML = document.getElementById("descTextarea").value;
+    rowDesc.value = document.getElementById("descTextarea").value;
     document.getElementById("descPopup").style.display = "none";
 }
 
@@ -411,10 +407,10 @@ function order(e) {
     var newCell  = newRow.insertCell(0);
     // Append nodes to the cell
     var id = e.getElementsByTagName('div')[0].innerHTML;
-    var hid  = document.createElement("p");
-    hid.className = "id";
-    hid.style = "display: none;";
-    hid.innerHTML = id;
+    var hid  = document.createElement("input");
+    hid.name = "id[]";
+    hid.type = "hidden";
+    hid.value = id;
     newCell.appendChild(hid);
     var del  = document.createElement("button");
     del.innerHTML = "-";
@@ -456,6 +452,7 @@ function order(e) {
     var text = document.createElement("input");
     text.value = "1";
     text.type = "number";
+    text.name = "quantity[]";
     text.addEventListener("keyup", function(event) {
         // Cancel the default action, if needed
         event.preventDefault();
@@ -488,12 +485,13 @@ function order(e) {
     descButton.className = "desc";
     descButton.onclick = function() {
         document.getElementById("descPopup").style.display = "block";
-        rowDesc = this.parentNode.getElementsByTagName("p")[0];
-        document.getElementById("descTextarea").value = rowDesc.innerHTML;
+        rowDesc = this.parentNode.getElementsByTagName("input")[0];
+        document.getElementById("descTextarea").value = rowDesc.value;
     }
     newCell.appendChild(descButton);
-    var desc  = document.createElement("p");
-    desc.style = "display: none;";
+    var desc  = document.createElement("input");
+    desc.type = "hidden";
+    desc.name = "desc[]";
     newCell.appendChild(desc);
 
     // Insert a cell in the row at index 4
