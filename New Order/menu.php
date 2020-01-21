@@ -16,7 +16,9 @@ if(mysqli_num_rows($result) > 0)
 			<div class="item" onclick="order(this)">
 				<div hidden>'.$row["id"].'</div>
 				<p style="display: inline-block;"><b>'.$row["foodName"].'</b></p>
-				<p style="float: right; display: inline-block;">Rp '.number_format($row["price"]).'</p>
+				<p style="float: right; display: inline-block;">'.number_format($row["price"]).'</p>
+				<p style="float: right; display: inline-block; padding-right: 5px;">Rp</p>
+				<div hidden>'.$row["price"].'</div>
 			</div>
 			<br>
 		';
@@ -43,7 +45,9 @@ if(mysqli_num_rows($result) > 0)
 			<div class="item" onclick="order(this)">
 				<div hidden>'.$row["id"].'</div>
 				<p style="display: inline-block;"><b>'.$row["foodName"].'</b></p>
-				<p style="float: right; display: inline-block;">Rp '.number_format($row["price"]).'</p>
+				<p style="float: right; display: inline-block;">'.number_format($row["price"]).'</p>
+				<p style="float: right; display: inline-block; padding-right: 5px;">Rp</p>
+				<div hidden>'.$row["price"].'</div>
 			</div>
 			<br>
 		';

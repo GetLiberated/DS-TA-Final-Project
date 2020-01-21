@@ -152,6 +152,11 @@
             display: inline-block;
             vertical-align: middle;
         }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -241,18 +246,32 @@ function order(e) {
         count = count < 1 ? 1 : count;
         $input.val(count);
         $input.change();
+        var $rp = $(this).closest('tr').children('td').children('p.ogprice').text();
+        var $newrp = $rp * $(this).parent().find('input').val();
+        $(this).closest('tr').children('td').children('p.price').text($newrp);
         return false;
     };
     div.appendChild(min);
     var text = document.createElement("input");
     text.value = "1";
-    text.type = "text";
+    text.type = "number";
+    text.addEventListener("keyup", function(event) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        var $rp = $(this).closest('tr').children('td').children('p.ogprice').text();
+        var $newrp = $rp * $(this).parent().find('input').val();
+        $(this).closest('tr').children('td').children('p.price').text($newrp);
+    });
     div.appendChild(text);
     var plus = document.createElement("span");
     plus.innerHTML = "+";
     plus.className = "plus";
     plus.onclick = function () {
         var $input = $(this).parent().find('input');
+        var $rp = $(this).closest('tr').children('td').children('p.ogprice').text();
+        var $newrp = $rp * (parseInt($input.val()) + 1);
+        $(this).closest('tr').children('td').children('p.price').text($newrp);
         $input.val(parseInt($input.val()) + 1);
         $input.change();
         return false;
@@ -263,7 +282,20 @@ function order(e) {
     // Insert a cell in the row at index 3
     var newCell  = newRow.insertCell(3);
     // Append nodes to the cell
-    var price = e.getElementsByTagName('p')[1].innerHTML;
-    newCell.appendChild(document.createTextNode(price));
+    var rp  = document.createElement("p");
+    rp.style = "display: inline-block; padding-right: 5px;";
+    rp.innerHTML = "Rp";
+    newCell.appendChild(rp);
+    var price = e.getElementsByTagName('div')[1].innerHTML;
+    var p  = document.createElement("p");
+    p.style = "display: inline-block;";
+    p.className = "price";
+    p.innerHTML = price;
+    newCell.appendChild(p);
+    var hp  = document.createElement("p");
+    hp.className = "ogprice";
+    hp.style = "display: none;"
+    hp.innerHTML = price;
+    newCell.appendChild(hp);
 }
 </script>

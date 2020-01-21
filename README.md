@@ -16,3 +16,4 @@
 - [Live search table code](https://www.webslesson.info/p/source-code-of-ajax-live-data-search.html)
 - [Receipt font](https://www.dafont.com/merchant-copy.font)
 - [Custom select](https://freefrontend.com/css-select-boxes/)
+- [Plus minus counter](https://codepen.io/Tanya_Rybachuk/pen/jyxzEp)
