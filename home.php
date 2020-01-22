@@ -99,13 +99,13 @@ filter: opacity(40%);  */
         
   
     <h1>Database TA</h1><h2>WINGSTOP</h2> 
-    <div id= "icon" class="w3-padding w3-xlarge w3-teal">
+    <!-- <div id= "icon" class="w3-padding w3-xlarge w3-teal">
         <i class="fa fa-bars" ></i>
         <i class="fa fa-close"></i>
         <i class="fa fa-arrow-left"></i>
         <i class="fa fa-search"></i>
         <i class="fa fa-refresh"></i>
-        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-right"></i> -->
 
 
     </div>
