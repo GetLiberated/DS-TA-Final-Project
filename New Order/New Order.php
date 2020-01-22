@@ -156,8 +156,9 @@
             display: inline-block;
             vertical-align: middle;
             text-align: center;
+            font-size: 26px;
         }
-        input {
+        .counter {
             height:34px;
             width: 50px;
             text-align: center;
@@ -172,13 +173,19 @@
             -webkit-appearance: none;
             margin: 0;
         }
+        input {
+            border:1px solid #ddd;
+            border-radius:5px;
+            display: inline-block;
+            vertical-align: middle;
+        }
 
         /* The Modal (background) */
         .modal {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
             z-index: 1; /* Sit on top */
-            padding-top: 400px; /* Location of the box */
+            padding-top: 300px; /* Location of the box */
             left: 0;
             top: 0;
             width: 100%; /* Full width */
@@ -201,7 +208,7 @@
             width: 20% !important;
         }
         #checkoutPopup .modal-content {
-            height: 20% !important;
+            height: 30% !important;
         }
 
         /* The Close Button */
@@ -219,31 +226,28 @@
             cursor: pointer;
         }
         .modal-content p {
-            margin: 10px;
+            margin: 5px 20px 10px;
             font-family: system-ui;
             font-size: 70px;
             display: inline-block;
         }
         #payment {
             display: inline-block;
+            width: 40%;
+            font-family: system-ui;
+            font-size: 24px;
         }
         .modal-content input {
             font-family: system-ui;
             font-size: 24px;
-            margin: 20px;
             padding: 20px;
             width: 40%;
         }
-        #checkoutPopup .modal-content button {
-            font-family: system-ui;
-            font-size: 70px;
-            color: red;
-            margin: 20px;
-            padding: 20px;
-        }
-        form {
-            margin: 0px !important;
-            padding: 0px !important;
+        .modal-content input:hover,
+        .modal-content input:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -254,39 +258,27 @@
     <p class="title">New Order</p>
     <button id="checkout">Checkout</button>
     <br>
-    <form method="POST" action="" style = "display:inline;">
-    
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
     <table id="order">
 
     </table>
-    <input type="submit" style="display: none">
-    </form>
     <div class="menu">
     
     </div>
-
-    <div id="descPopup" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <textarea id="descTextarea" rows="10" cols="50" placeholder="Enter description..."></textarea>
-            <button onclick="submitDesc();">Done</button>
-        </div>
-    </div>
-
+    
     <div id="checkoutPopup" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <br>
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
                 <p style="font-weight: bold;">Total</p>
                 <p id="total" style="float: right;"></p>
-                <p style="float: right; padding-right: 5px;">Rp</p>
+                <p style="float: right;">Rp</p>
                 <br>
                 <select name="paymentID" id="payment"></select>
-                <input name="income" type="text" placeholder="How much customer payed">
+                <input style="float: right;" name="income" type="text" placeholder="How much customer payed">
                 <br>
                 <input name="customer" type="text" placeholder="Customer name">
-                <input name="date" type="text" placeholder="Date">
+                <input style="float: right;" name="date" type="text" placeholder="Date">
                 <br>
                 <input type="submit">
             </form>
@@ -298,18 +290,47 @@
                     $staffID = 1;
                     $customer = htmlspecialchars($_REQUEST['customer']);
                     $paymentID = htmlspecialchars($_REQUEST['paymentID']);
-
+                    
                     $connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
                     $query = "
-                            INSERT INTO Transaction (income, date, staffID, customer, paymentID)
-                            VALUES ('".$income."','".$date."','".$staffID."','".$customer."','".$paymentID."')
-                            ";
+                    INSERT INTO Transaction (income, date, staffID, customer, paymentID)
+                    VALUES ('".$income."','".$date."','".$staffID."','".$customer."','".$paymentID."')
+                    ";
                     $result = mysqli_query($connect, $query);
+                    $query = "
+                    SELECT transactionID FROM Transaction ORDER BY transactionID DESC LIMIT 1
+                    ";
+                    $result = mysqli_query($connect, $query);
+                    $transactionID = '';
+                    while($row = mysqli_fetch_array($result))
+                    {
+                        $transactionID = $row["transactionID"];
+                    }
+                    foreach ($_POST['id'] as $key => $value) 
+                    {
+                        $id = $_POST["id"][$key];
+                        $quantity = $_POST["quantity"][$key];
+                        $desc = $_POST["desc"][$key];
+                        
+                        $connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
+                        $query = "
+                        INSERT INTO TransactionDetail (itemID, transactionID, quantity, description)
+                        VALUES ('".$id."','".$transactionID."','".$quantity."','".$desc."')
+                        ";
+                        mysqli_query($connect, $query);
+                    }
                     mysqli_close($connect);
                 }
-            ?>
+                ?>
         </div>
     </div>
+                <div id="descPopup" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <textarea id="descTextarea" rows="10" cols="50" placeholder="Enter description..."></textarea>
+                        <button onclick="submitDesc();">Done</button>
+                    </div>
+                </div>
 </body>
 </html>
 
@@ -354,7 +375,7 @@ window.onclick = function(event) {
 }
 
 function submitDesc() {
-    rowDesc.innerHTML = document.getElementById("descTextarea").value;
+    rowDesc.value = document.getElementById("descTextarea").value;
     document.getElementById("descPopup").style.display = "none";
 }
 
@@ -412,10 +433,10 @@ function order(e) {
     var newCell  = newRow.insertCell(0);
     // Append nodes to the cell
     var id = e.getElementsByTagName('div')[0].innerHTML;
-    var hid  = document.createElement("p");
-    hid.className = "id";
-    hid.style = "display: none;";
-    hid.innerHTML = id;
+    var hid  = document.createElement("input");
+    hid.name = "id[]";
+    hid.type = "hidden";
+    hid.value = id;
     newCell.appendChild(hid);
     var del  = document.createElement("button");
     del.innerHTML = "-";
@@ -457,6 +478,8 @@ function order(e) {
     var text = document.createElement("input");
     text.value = "1";
     text.type = "number";
+    text.name = "quantity[]";
+    text.className = "counter";
     text.addEventListener("keyup", function(event) {
         // Cancel the default action, if needed
         event.preventDefault();
@@ -489,12 +512,15 @@ function order(e) {
     descButton.className = "desc";
     descButton.onclick = function() {
         document.getElementById("descPopup").style.display = "block";
-        rowDesc = this.parentNode.getElementsByTagName("p")[0];
-        document.getElementById("descTextarea").value = rowDesc.innerHTML;
+        rowDesc = this.parentNode.getElementsByTagName("input")[0];
+        document.getElementById("descTextarea").value = rowDesc.value;
+        return false;
     }
     newCell.appendChild(descButton);
-    var desc  = document.createElement("p");
-    desc.style = "display: none;";
+    var desc  = document.createElement("input");
+    desc.type = "hidden";
+    desc.name = "desc[]";
+    desc.value = " ";
     newCell.appendChild(desc);
 
     // Insert a cell in the row at index 4
