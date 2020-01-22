@@ -207,6 +207,7 @@
         ?>
         <?php
             $streetName = $_GET["streetName"];
+            $location = $_GET["location"];
             $zipCode = $_GET["zipCode"];
             $province = $_GET["province"];
             $city = $_GET["city"];

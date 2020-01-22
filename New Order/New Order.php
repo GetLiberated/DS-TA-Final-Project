@@ -207,6 +207,10 @@
         #descPopup .modal-content {
             width: 20% !important;
         }
+        #descTextarea {
+            
+            
+        }
         #checkoutPopup .modal-content {
             height: 30% !important;
         }
