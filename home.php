@@ -12,6 +12,7 @@
             padding: 25px;
             background-repeat: no-repeat;
             background-size: auto;
+            cursor: url(cursor.png), auto;
             
         }
 /* filter: saturate(3); 
@@ -26,10 +27,8 @@ filter: opacity(40%);  */
             /*Filter styles*/
 
         
-        .handclass:hover {
-            cursor: url('cursor.png');
-        }
         
+            
         .Menu {
             /* height: 100%; */
             color: blue;
@@ -95,6 +94,11 @@ filter: opacity(40%);  */
 <body>
     
     <!-- <img src="BGImage.jpg" alt="BackGroundImage" height = "1280" widght = "720"> -->
+    
+
+
+        
+  
     <h1>Database TA</h1><h2>WINGSTOP</h2> 
     <div id= "icon" class="w3-padding w3-xlarge w3-teal">
         <i class="fa fa-bars" ></i>
