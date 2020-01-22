@@ -187,16 +187,16 @@
             <th width="12%">Payment ID</th>
         </tr>
         <?php
-            $TransactionID= $_GET["TransactionID"];
+            $transactionID= $_GET["transactionID"];
 
             $conn = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             } 
 
-            $sql = "DELETE FROM Transaction WHERE TransactionID=" . $TransactionID;
+            $sql = "DELETE FROM Transaction WHERE transactionID=" . $transactionID;
 
-            if ($id != "") $conn->query($sql);
+            if ($transactionID != "") $conn->query($sql);
 
             $conn->close();
         ?>
@@ -230,7 +230,20 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"id\" value=\"" . $row["transactionID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["transactionID"]. "</td><td>" . $row["income"]. "</td><td>" . $row["date"]."</td><td>" . $row["staffID"]."</td><td>" . $row["customer"]."</td><td>" . $row["paymentID"]."</td></tr>";
+                    echo "<tr>
+                            <td>
+                                <form action=\"\" method=\"GET\">
+                                    <input type=\"hidden\" name=\"transactionID\" value=\"" . $row["transactionID"] . "\">
+                                    <input class=\"delete\" type=\"submit\" value=\"-\">
+                                </form>
+                            </td>
+                            <td>" . $row["transactionID"]. "</td>
+                            <td>" . $row["income"]. "</td>
+                            <td>" . $row["date"]."</td>
+                            <td>" . $row["staffID"]."</td>
+                            <td>" . $row["customer"]."</td>
+                            <td>" . $row["paymentID"]."</td>
+                        </tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
@@ -282,7 +295,10 @@
                         x[i].style.visibility = 'hidden';
                     }
                 }
-                if (visible) { document.getElementById("insertForm").style.visibility = 'hidden'; }
+                if (visible) { 
+                    document.getElementById("insertForm").style.visibility = 'hidden';
+                    window.location.reload(); 
+                }
                 else { 
                     document.getElementById("insertForm").style.visibility = 'visible'; 
                     $(document).ready(function(){
@@ -291,7 +307,7 @@
                             editButton: false,   		
                             columns: {
                                 identifier: [1, 'transactionID'],                    
-                                editable: [[2, 'income'], [3, 'date'], [4, 'staffID'], [5, 'customer'], [5, 'paymentID']]
+                                editable: [[2, 'income'], [3, 'date'], [4, 'staffID'], [5, 'customer'], [6, 'paymentID']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit_Transaction.php'		

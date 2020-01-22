@@ -270,7 +270,10 @@
                         x[i].style.visibility = 'hidden';
                     }
                 }
-                if (visible) { document.getElementById("insertForm").style.visibility = 'hidden'; }
+                if (visible) { 
+                    document.getElementById("insertForm").style.visibility = 'hidden';
+                    window.location.reload(); 
+                }
                 else { 
                     document.getElementById("insertForm").style.visibility = 'visible'; 
                     $(document).ready(function(){

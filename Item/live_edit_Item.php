@@ -10,7 +10,7 @@ if ($input['action'] == 'edit') {
 	if(isset($input['foodName'])) {
 		$update_field.= "foodName='".$input['foodName']."'";
 	} else if(isset($input['category'])) {
-		$update_field.= "category'".$input['category']."'";
+		$update_field.= "category='".$input['category']."'";
 	} else if(isset($input['price'])) {
 		$update_field.= "price='".$input['price']."'";
 	} 	
