@@ -12,7 +12,7 @@
             padding: 25px;
             background-repeat: no-repeat;
             background-size: auto;
-            
+            cursor: url('cursor.png');
         }
 /* filter: saturate(3); 
 filter: grayscale(200%); 
@@ -24,11 +24,6 @@ filter: sepia(100%);
 filter: hue-rotate(180deg); 
 filter: opacity(40%);  */
             /*Filter styles*/
-
-        
-        .handclass:hover {
-            cursor: url('cursor.png');
-        }
         
         .Menu {
             /* height: 100%; */

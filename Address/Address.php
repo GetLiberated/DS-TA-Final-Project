@@ -301,10 +301,10 @@
                             editButton: false,   		
                             columns: {
                             identifier: [1, 'addressID'],                    
-                            editable: [[2, 'streetName'], [3, 'zipCode'], [4, 'province'], [5, 'city'], [6, 'country'], [7, 'location']]
+                            editable: [[2, 'location'], [3, 'streetName'], [4, 'zipCode'], [5, 'province'], [6, 'city'], [7, 'country']]
                             },
                             hideIdentifier: false,
-                            url: 'live_edit.php'		
+                            url: 'live_edit_Address.php'		
                         });
                     });
                 }
