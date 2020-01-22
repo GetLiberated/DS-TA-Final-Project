@@ -186,16 +186,16 @@
             <th width="15%">Tax</th>
         </tr>
         <?php
-            $id = $_GET["id"];
+            $restaurantID= $_GET["restaurantID"];
 
             $conn = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             } 
 
-            $sql = "DELETE FROM Restaurant WHERE id=" . $id;
+            $sql = "DELETE FROM Restaurant WHERE restaurantID=" . $restaurantID;
 
-            if ($id != "") $conn->query($sql);
+            if ($restaurantID != "") $conn->query($sql);
 
             $conn->close();
         ?>

@@ -292,7 +292,7 @@
                             editButton: false,   		
                             columns: {
                             identifier: [1, 'paymentID'],                    
-                            editable: [[2, 'name'],]
+                            editable: [[2, 'name']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit_payment.php'		

@@ -10,8 +10,8 @@ if ($input['action'] == 'edit') {
 	if(isset($input['name'])) {
 		$update_field.= "name='".$input['name']."'";
 	} 	
-	if($update_field && $input['PaymentID']) {
-		$sql_query = "UPDATE Payment SET $update_field WHERE PaymentID='" . $input['PaymentID'] . "'";	
+	if($update_field && $input['paymentID']) {
+		$sql_query = "UPDATE Payment SET $update_field WHERE paymentID='" . $input['paymentID'] . "'";	
 		mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));		
 	}
 }
