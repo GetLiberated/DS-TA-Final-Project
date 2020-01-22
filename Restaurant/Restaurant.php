@@ -292,7 +292,7 @@
                                 editable: [[2, 'phone'], [3, 'addressID'], [4, 'openHours'], [5, 'genre'], [6, 'tax']]
                             },
                             hideIdentifier: false,
-                            url: 'live_edit.php'		
+                            url: 'live_edit_Restaurant.php'		
                         });
                     });
                 }

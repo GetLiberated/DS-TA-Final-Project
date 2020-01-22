@@ -287,7 +287,7 @@
                                 editable: [[2, 'foodName'], [3,'category' ], [4, 'price' ]]
                             },
                             hideIdentifier: false,
-                            url: 'live_edit.php'
+                            url: 'live_edit_Item.php'
                             });
                         });
                     }

@@ -294,7 +294,7 @@
                                 editable: [[2, 'income'], [3, 'date'], [4, 'staffID'], [5, 'customer'], [5, 'paymentID']]
                             },
                             hideIdentifier: false,
-                            url: 'live_edit.php'		
+                            url: 'live_edit_Transaction.php'		
                         });
                     });
                 }
