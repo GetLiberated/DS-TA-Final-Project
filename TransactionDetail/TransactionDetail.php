@@ -292,7 +292,7 @@
                                 editable: [[2, 'itemID'],[3, 'transactionID'], [4, 'quantity'],[5, 'description']]
                             },
                             hideIdentifier: false,
-                            url: 'live_edit.php'		
+                            url: 'live_edit_TransactionDetail.php'		
                         });
                     });
                 }

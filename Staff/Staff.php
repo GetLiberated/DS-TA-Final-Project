@@ -282,7 +282,7 @@
                                 editable: [[2, 'name'], [3, 'restaurantID']]
                             },
                             hideIdentifier: false,
-                            url: 'live_edit.php'		
+                            url: 'live_edit_Staff.php'		
                         });
                     });
                 }

@@ -286,7 +286,7 @@
                             editable: [[2, 'name'],]
                             },
                             hideIdentifier: false,
-                            url: 'live_edit.php'		
+                            url: 'live_edit_payment.php'		
                         });
                     });
                 }
