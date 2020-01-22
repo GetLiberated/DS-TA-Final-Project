@@ -207,6 +207,7 @@
         ?>
         <?php
             $streetName = $_GET["streetName"];
+            $location = $_GET["location"];
             $zipCode = $_GET["zipCode"];
             $province = $_GET["province"];
             $city = $_GET["city"];
@@ -301,7 +302,7 @@
                             editButton: false,   		
                             columns: {
                             identifier: [1, 'addressID'],                    
-                            editable: [[2, 'streetName'], [3, 'zipCode'], [4, 'province'], [5, 'city'], [6, 'country'], [7, 'location']]
+                            editable: [[2, 'streetName'],[3, 'location'] [4, 'zipCode'], [5, 'province'], [6, 'city'], [7, 'country']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit.php'		
