@@ -302,10 +302,10 @@
                             editButton: false,   		
                             columns: {
                             identifier: [1, 'addressID'],                    
-                            editable: [[2, 'streetName'],[3, 'location'] [4, 'zipCode'], [5, 'province'], [6, 'city'], [7, 'country']]
+                            editable: [[2, 'location'], [3, 'streetName'], [4, 'zipCode'], [5, 'province'], [6, 'city'], [7, 'country']]
                             },
                             hideIdentifier: false,
-                            url: 'live_edit.php'		
+                            url: 'live_edit_Address.php'		
                         });
                     });
                 }

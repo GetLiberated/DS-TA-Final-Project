@@ -12,8 +12,7 @@
             padding: 25px;
             background-repeat: no-repeat;
             background-size: auto;
-            cursor: url("cursor.png"), auto;
-            
+            cursor: url('cursor.png');
         }
 /* filter: saturate(3); 
 filter: grayscale(200%); 
