@@ -4,15 +4,26 @@
 		$Name = mysqli_real_escape_string($connection, $_POST['Name']);
 		$Pass = mysqli_real_escape_string($connection, $_POST['Pass']);
 	
-		if($Name == '1' && $Pass == '1'){
-			header("Location: home.php?");
-			
-		}
-
-		else{
-			header("Location: index.php?Failed");
-		}					
+	if($Name == '1' && $Pass == '1'){
+		echo "<script>
+ 	window.onload = function() {
+     // similar behavior as clicking on a link
+     window.location.href = \"home.php\";
+ 	}
+ </script>";
+		
 	}
+
+
+	else{
+		header("Location: index.php?Failed");
+				}			
+			
+	}
+
+	
+
+
 	 ?>
 
 	<!DOCTYPE html>
