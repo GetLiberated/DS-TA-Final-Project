@@ -229,7 +229,20 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"restaurantID\" value=\"" . $row["restaurantID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["restaurantID"]. "</td><td>" . $row["phone"]. "</td><td>" . $row["addressID"]. "</td><td>" . $row["openHours"]. "</td><td>" . $row["genre"]."</td><td>" .$row["tax"]. "</td></tr>";
+                    echo "<tr>
+                            <td>
+                                <form action=\"\" method=\"GET\">
+                                    <input type=\"hidden\" name=\"restaurantID\" value=\"" . $row["restaurantID"] . "\">
+                                    <input class=\"delete\" type=\"submit\" value=\"-\">
+                                </form>
+                            </td>
+                            <td>" . $row["restaurantID"]. "</td>
+                            <td>" . $row["phone"]. "</td>
+                            <td>" . $row["addressID"]. "</td>
+                            <td>" . $row["openHours"]. "</td>
+                            <td>" . $row["genre"]."</td>
+                            <td>" .$row["tax"]. "</td>
+                        </tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
