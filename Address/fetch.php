@@ -38,7 +38,12 @@ if(mysqli_num_rows($result) > 0)
 	{
 		$output .= '
 			<tr>
-				<td><form action="" method="GET"><input type="hidden" name="addressID" value="' . $row["addressID"] . '"><input class="delete" type="submit" value="-"></form></td>
+				<td>
+					<form action="" method="GET">
+						<input type="hidden" name="addressID" value="' . $row["addressID"] . '">
+						<input class="delete" type="submit" value="-">
+					</form>
+				</td>
 				<td>'.$row["addressID"].'</td>
 				<td>'.$row["location"].'</td>
 				<td>'.$row["streetName"].'</td>

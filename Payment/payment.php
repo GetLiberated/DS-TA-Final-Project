@@ -227,7 +227,16 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><form action=\"\" method=\"GET\"><input type=\"hidden\" name=\"paymentID\" value=\"" . $row["paymentID"] . "\"><input class=\"delete\" type=\"submit\" value=\"-\"></form></td><td>" . $row["paymentID"]. "</td><td>" . $row["name"]. "</td></tr>";
+                    echo "<tr>
+                            <td>
+                            <form action=\"\" method=\"GET\">
+                                <input type=\"hidden\" name=\"paymentID\" value=\"" . $row["paymentID"] . "\">
+                                <input class=\"delete\" type=\"submit\" value=\"-\">
+                            </form>
+                            </td>
+                            <td>" . $row["paymentID"]. "</td>
+                            <td>" . $row["name"]. "</td>
+                        </tr>";
                 }
                 // echo "</table>";
             } else { echo '<script type="text/javascript"> editDatabase(); </script>'; }
