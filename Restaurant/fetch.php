@@ -36,8 +36,8 @@ if(mysqli_num_rows($result) > 0)
 	{
 		$output .= '
 			<tr>
-				<td><
-					form action="" method="GET">
+				<td>
+					<form action="" method="GET">
 						<input type="hidden" name="restaurantID" value="' . $row["restaurantID"] . '">
 						<input class="delete" type="submit" value="-">
 					</form>
