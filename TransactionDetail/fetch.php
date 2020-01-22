@@ -23,7 +23,7 @@ if(mysqli_num_rows($result) > 0)
 	$output .= '<table id="database">
 					<tr>
 						<th width="8%"></th>
-						<th width="21%">Transaction ID</th>
+						<th width="21%">Transaction Detail ID</th>
 						<th width="21%">Item ID</th>
 						<th width="21%">Transaction ID</th>
 						<th width="29%">Item Description</th>

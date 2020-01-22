@@ -279,7 +279,7 @@
                 <p style="float: right;">Rp</p>
                 <br>
                 <select name="paymentID" id="payment"></select>
-                <input style="float: right;" name="income" type="text" placeholder="How much customer payed">
+                <input style="float: right;" name="income" type="number" placeholder="How much customer payed">
                 <br>
                 <input name="customer" type="text" placeholder="Customer name">
                 <input style="float: right;" name="date" type="text" placeholder="Date">
@@ -300,7 +300,7 @@
                     INSERT INTO Transaction (income, date, staffID, customer, paymentID)
                     VALUES ('".$income."','".$date."','".$staffID."','".$customer."','".$paymentID."')
                     ";
-                    $result = mysqli_query($connect, $query);
+                    $result = mysqli_query($connect, $query) or die(mysqli_error($connect));
                     $query = "
                     SELECT transactionID FROM Transaction ORDER BY transactionID DESC LIMIT 1
                     ";

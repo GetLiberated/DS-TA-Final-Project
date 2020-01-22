@@ -5,8 +5,8 @@
 - Winson Wardana - 2201798345
 
 ## Contribution
-- Winson (Create tables, Login)
-- Livander (Home, ERD, Decoration, Search UI, TUKANG COPY for all table)
+- Winson (Create tables, Login, Modify tables, Reference tables)
+- Livander (HOMPAGE, ERD, Decoration, Search UI, TUKANG COPY for all table)
 - Eris (The rest of it.)
 
 ### Source
@@ -17,3 +17,4 @@
 - [Receipt font](https://www.dafont.com/merchant-copy.font)
 - [Custom select](https://freefrontend.com/css-select-boxes/)
 - [Plus minus counter](https://codepen.io/Tanya_Rybachuk/pen/jyxzEp)
+- [Cursor](http://dragonica-extended.com/landing.php)
