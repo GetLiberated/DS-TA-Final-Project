@@ -12,7 +12,7 @@
             padding: 25px;
             background-repeat: no-repeat;
             background-size: auto;
-            cursor: url(cursor.png), auto;
+            cursor: url("cursor.png"), auto;
             
         }
 /* filter: saturate(3); 
