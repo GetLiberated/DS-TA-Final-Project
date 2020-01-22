@@ -1,13 +1,8 @@
 <?php  
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "";
+$connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
 
-$connection = mysqli_connect($servername,$username,$password,$dbname);
-
-if(! $connection){
+if(! $connect){
 	die ("Connection Failed : ". mysqli_connect_error());
 }
 
