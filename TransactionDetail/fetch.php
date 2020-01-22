@@ -36,7 +36,7 @@ if(mysqli_num_rows($result) > 0)
 			<tr>
 				<td>
 					<form action="" method="GET">
-						<input type="hidden" total="transactionDetailID" value="' . $row["transactionDetailID"] . '">
+						<input type="hidden" name="transactionDetailID" value="' . $row["transactionDetailID"] . '">
 						<input class="delete" type="submit" value="-">
 					</form>
 				</td>
