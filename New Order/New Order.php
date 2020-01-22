@@ -156,8 +156,9 @@
             display: inline-block;
             vertical-align: middle;
             text-align: center;
+            font-size: 26px;
         }
-        input {
+        .counter {
             height:34px;
             width: 50px;
             text-align: center;
@@ -172,13 +173,19 @@
             -webkit-appearance: none;
             margin: 0;
         }
+        input {
+            border:1px solid #ddd;
+            border-radius:5px;
+            display: inline-block;
+            vertical-align: middle;
+        }
 
         /* The Modal (background) */
         .modal {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
             z-index: 1; /* Sit on top */
-            padding-top: 400px; /* Location of the box */
+            padding-top: 300px; /* Location of the box */
             left: 0;
             top: 0;
             width: 100%; /* Full width */
@@ -201,7 +208,7 @@
             width: 20% !important;
         }
         #checkoutPopup .modal-content {
-            height: 20% !important;
+            height: 30% !important;
         }
 
         /* The Close Button */
@@ -219,27 +226,28 @@
             cursor: pointer;
         }
         .modal-content p {
-            margin: 10px;
+            margin: 5px 20px 10px;
             font-family: system-ui;
             font-size: 70px;
             display: inline-block;
         }
         #payment {
             display: inline-block;
+            width: 40%;
+            font-family: system-ui;
+            font-size: 24px;
         }
         .modal-content input {
             font-family: system-ui;
             font-size: 24px;
-            margin: 20px;
             padding: 20px;
             width: 40%;
         }
-        #checkoutPopup .modal-content button {
-            font-family: system-ui;
-            font-size: 70px;
-            color: red;
-            margin: 20px;
-            padding: 20px;
+        .modal-content input:hover,
+        .modal-content input:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -264,13 +272,13 @@
             <br>
                 <p style="font-weight: bold;">Total</p>
                 <p id="total" style="float: right;"></p>
-                <p style="float: right; padding-right: 5px;">Rp</p>
+                <p style="float: right;">Rp</p>
                 <br>
                 <select name="paymentID" id="payment"></select>
-                <input name="income" type="text" placeholder="How much customer payed">
+                <input style="float: right;" name="income" type="text" placeholder="How much customer payed">
                 <br>
                 <input name="customer" type="text" placeholder="Customer name">
-                <input name="date" type="text" placeholder="Date">
+                <input style="float: right;" name="date" type="text" placeholder="Date">
                 <br>
                 <input type="submit">
             </form>
@@ -471,6 +479,7 @@ function order(e) {
     text.value = "1";
     text.type = "number";
     text.name = "quantity[]";
+    text.className = "counter";
     text.addEventListener("keyup", function(event) {
         // Cancel the default action, if needed
         event.preventDefault();
