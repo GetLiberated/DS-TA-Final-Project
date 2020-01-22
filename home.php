@@ -24,7 +24,10 @@ filter: sepia(100%);
 filter: hue-rotate(180deg); 
 filter: opacity(40%);  */
             /*Filter styles*/
+
         
+        
+            
         .Menu {
             /* height: 100%; */
             color: blue;
@@ -90,6 +93,11 @@ filter: opacity(40%);  */
 <body>
     
     <!-- <img src="BGImage.jpg" alt="BackGroundImage" height = "1280" widght = "720"> -->
+    
+
+
+        
+  
     <h1>Database TA</h1><h2>WINGSTOP</h2> 
     <div id= "icon" class="w3-padding w3-xlarge w3-teal">
         <i class="fa fa-bars" ></i>
