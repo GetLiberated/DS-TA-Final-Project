@@ -5,7 +5,15 @@
 		$Pass = mysqli_real_escape_string($connection, $_POST['Pass']);
 	
 	if($Name == '1' && $Pass == '1'){
-		header("Location: index.php?");
+			echo "string";<script>
+ 	window.onload = function() {
+     // similar behavior as clicking on a link
+     window.location.href = "home.php";
+ 	}
+ </script>
+		
+	}
+
 		
 	}
 
