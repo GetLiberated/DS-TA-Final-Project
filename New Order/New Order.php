@@ -318,10 +318,12 @@
                         
                         $connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
                         $query = "
-                        INSERT INTO TransactionDetail (itemID, transactionID, quantity, description)
-                        VALUES ('".$id."','".$transactionID."','".$quantity."','".$desc."')
+                        INSERT INTO TransactionDetail (itemID, transactionID, description)
+                        VALUES ('".$id."','".$transactionID."','".$desc."')
                         ";
-                        mysqli_query($connect, $query);
+                        for ($i = 0; $i < $quantity; $i++) {
+                            mysqli_query($connect, $query);
+                        }
                     }
                     mysqli_close($connect);
                 }
