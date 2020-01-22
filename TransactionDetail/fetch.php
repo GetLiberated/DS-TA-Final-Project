@@ -8,7 +8,6 @@ if(isset($_POST["query"]))
 	SELECT * FROM TransactionDetail
 	WHERE itemID LIKE '%".$search."%'
 	OR transactionID LIKE '%".$search."%' 
-	OR quantity LIKE '%".$search."%' 
 	OR description LIKE '%".$search."%' 
 	OR transactionDetailID LIKE '%".$search."%' 
 	";
@@ -24,11 +23,10 @@ if(mysqli_num_rows($result) > 0)
 	$output .= '<table id="database">
 					<tr>
 						<th width="8%"></th>
-						<th width="17%">Transaction ID</th>
-						<th width="17%">Item ID</th>
-						<th width="17%">Transaction ID</th>
-						<th width="17%">Quantity</th>
-						<th width="24%">Item Description</th>
+						<th width="21%">Transaction ID</th>
+						<th width="21%">Item ID</th>
+						<th width="21%">Transaction ID</th>
+						<th width="29%">Item Description</th>
 					</tr>';
 	while($row = mysqli_fetch_array($result))
 	{
@@ -43,7 +41,6 @@ if(mysqli_num_rows($result) > 0)
 				<td>'.$row["transactionDetailID"].'</td>
 				<td>'.$row["itemID"].'</td>
 				<td>'.$row["transactionID"].'</td>
-				<td>'.$row["quantity"].'</td>
 				<td>'.$row["description"].'</td>
 			</tr>
 		';
