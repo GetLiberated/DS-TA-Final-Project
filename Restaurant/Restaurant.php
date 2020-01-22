@@ -270,7 +270,7 @@
                
             if (table.rows.length != 1) {
                 var visible = false;
-                var x = document.getElementsByClassphone('delete');
+                var x = document.getElementsByClassName('delete');
                 for (var i = 0, length = x.length; i < length; i++) {
                     if (x[i].style.visibility === 'hidden' || x[i].style.visibility === '') {
                         visible = false;

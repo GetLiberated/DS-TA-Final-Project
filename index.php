@@ -8,7 +8,7 @@
 			header("Location: home.php?");
 			
 		}
-		
+
 		else{
 			header("Location: index.php?Failed");
 		}					
