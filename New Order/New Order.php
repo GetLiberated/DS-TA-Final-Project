@@ -257,7 +257,7 @@
 </head>
 <body>
     <div class="back">
-        <a href="../index.php"><i class="fa fa-arrow-left"></i></a>    
+        <a href="../home.php"><i class="fa fa-arrow-left"></i></a>    
     </div>
     <p class="title">New Order</p>
     <button id="checkout">Checkout</button>

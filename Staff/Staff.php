@@ -165,7 +165,7 @@
 <body>
     <p id="debug"></p>
     <div class = "back">
-        <a href="../index.php"><i class="fa fa-arrow-left"></i></a>
+        <a href="../home.php"><i class="fa fa-arrow-left"></i></a>
     </div>
     <p class="title">Staff Database</p>
     <button onclick="Search()" class="fa fa-search" id="search_button"  ></button>

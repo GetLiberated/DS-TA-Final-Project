@@ -165,7 +165,7 @@
 <body>
     <p id="debug"></p>
     <div class = "back">
-        <a href="../index.php"><i class="fa fa-arrow-left"></i></a>
+        <a href="../home.php"><i class="fa fa-arrow-left"></i></a>
     </div>
 
     <p class="title">Item Database</p>
@@ -202,7 +202,7 @@
         <?php
                 $foodName = $_GET["foodName"];
                 $price = $_GET["price"];
-                $description = $_GET["description"];
+                $category = $_GET["category"];
                 
                 
 
@@ -211,7 +211,7 @@
                     die("Connection failed: " . $conn->connect_error);
                 } 
 
-                $sql = "INSERT INTO Item (foodName, category, price, description, )
+                $sql = "INSERT INTO Item (foodName, category, price)
                 VALUES (\"" . $foodName . "\",\"" . $category. "\",\"" . $price . "\")";
 
                 if ($foodName != "") $conn->query($sql);
@@ -275,7 +275,10 @@
                         x[i].style.visibility = 'hidden';
                     }
                 }
-                if (visible) { document.getElementById("insertForm").style.visibility = 'hidden'; }
+                if (visible) { 
+                    document.getElementById("insertForm").style.visibility = 'hidden';
+                    window.location.reload(); 
+                }
                 else { 
                     document.getElementById("insertForm").style.visibility = 'visible'; 
                     $(document).ready(function(){

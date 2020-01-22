@@ -78,7 +78,7 @@
 </style>
 <body>
     <div class = "back">
-        <a href="../index.php"><i class="fa fa-arrow-left"></i></a>    
+        <a href="../home.php"><i class="fa fa-arrow-left"></i></a>    
     </div>
     <p class="title">Invoice</p>
     <div class="wrapper typo">Transaction ID:
