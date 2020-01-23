@@ -132,7 +132,7 @@ filter: opacity(40%);  */
         <a href="transactionDetail/transactionDetail.php">Transaction Detail</a>
         <a href="payment/payment.php">Payment</a>
         <br><br>
-        <p>Cool stuff</p>
+        <p>Do stuff</p>
         <a href="receipt/receipt.php">Receipt</a>
         <a href="new order/new order.php">New Order</a>
         <br><br><br>

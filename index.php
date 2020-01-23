@@ -1,9 +1,5 @@
 	<?php 
-	include("database/config.php");
-	if(isset($_POST['admin_login'])){
-		$Name = mysqli_real_escape_string($connection, $_POST['Name']);
-		$Pass = mysqli_real_escape_string($connection, $_POST['Pass']);
-	}
+	
 	
 
 	
@@ -71,6 +67,11 @@
 
 			  <button name="admin_login" style="width: 100%" type="submit" class="btn btn-primary">login</button>
 				<?php 
+				include("database/config.php");
+				if(isset($_POST['admin_login'])){
+					$Name = mysqli_real_escape_string($connection, $_POST['Name']);
+					$Pass = mysqli_real_escape_string($connection, $_POST['Pass']);
+				
 				$connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
 				$result = mysqli_query($connect, "SELECT * FROM Staff");
 				if(mysqli_num_rows($result) > 0)
@@ -107,7 +108,7 @@
 			 	<div class="form-group">
 			 		<label style="color: red">Wrong Username or password</label>
 			 	</div>
-			 <?php } ?>
+			 <?php } }?>
 			</form>
 
    	</div>
