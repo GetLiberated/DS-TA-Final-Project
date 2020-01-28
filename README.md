@@ -1,4 +1,12 @@
 # Database Systems TA Final Project
+[Live website](https://getliberated.zryk.xyz/)
+
+Username: admin
+
+Password: admin
+
+(for demo purposes.)
+
 ## Group 8
 - Muhammad Erizky S - 2201797052
 - Livander Surya - 2201796384
