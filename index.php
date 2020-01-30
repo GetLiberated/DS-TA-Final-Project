@@ -1,4 +1,7 @@
 	<?php 
+	$queryGetname = mysqli_query($connection,"SELECT * FROM Staff");
+	
+									
 	include("database/config.php");
 	if(isset($_POST['admin_login'])){
 		$Name = mysqli_real_escape_string($connection, $_POST['Name']);
@@ -71,6 +74,8 @@
 	<body style="background-color: white">
 	<img style="width: 100%;opacity: 0.2" src="assets/logo1.jpg" alt="">
 	<div class="overlay-desc" style="margin-top: -210px">
+
+	
      		<h4>Admin Login</h4>
      	</div>
 
