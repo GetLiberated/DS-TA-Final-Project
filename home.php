@@ -12,7 +12,7 @@
             padding: 25px;
             background-repeat: no-repeat;
             background-size: auto;
-            cursor: url('cursor.png');
+            cursor: url('cursor_H.ico'), default;
         }
 /* filter: saturate(3); 
 filter: grayscale(200%); 
@@ -85,9 +85,20 @@ filter: opacity(40%);  */
             
 
         }
-        #icon i{
-            color: red;
+        p{
+            font-family : ourFond;
+            color : black !important;
+            font-size:50px;
+            font-weight: bold;
+            margin: 0px;
         }
+        /* h1,h2 {
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        } */
     </style>
 </head>
 <body>
@@ -99,18 +110,19 @@ filter: opacity(40%);  */
         
   
     <h1>Database TA</h1><h2>WINGSTOP</h2> 
-    <div id= "icon" class="w3-padding w3-xlarge w3-teal">
+    <!-- <div id= "icon" class="w3-padding w3-xlarge w3-teal">
         <i class="fa fa-bars" ></i>
         <i class="fa fa-close"></i>
         <i class="fa fa-arrow-left"></i>
         <i class="fa fa-search"></i>
         <i class="fa fa-refresh"></i>
-        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-right"></i> -->
 
 
     </div>
     <div class = "Menu"> 
         <br><br><br><br><br><br><br>
+        <p>View database tables</p>
         <a href="address/address.php">Address</a>
         <a href="transaction/transaction.php">Transaction</a>
         <a href="restaurant/restaurant.php">Restaurant</a>
@@ -118,10 +130,11 @@ filter: opacity(40%);  */
         <a href="staff/staff.php">Staff</a>
         <a href="Item/item.php">Item</a>
         <a href="transactionDetail/transactionDetail.php">Transaction Detail</a>
-        <br>
+        <a href="payment/payment.php">Payment</a>
+        <br><br>
+        <p>Do stuff</p>
         <a href="receipt/receipt.php">Receipt</a>
         <a href="new order/new order.php">New Order</a>
-        <a href="payment/payment.php">Payment</a>
         <br><br><br>
         <!-- <p><i class="w3-jumbo w3-spin fa fa-home"></i></p> -->
         

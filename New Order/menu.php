@@ -2,7 +2,7 @@
 $connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
 $output = '';
 $query = "
-		SELECT * FROM Item
+		SELECT * FROM Item where category = \"food\"
 		";
 $result = mysqli_query($connect, $query);
 if(mysqli_num_rows($result) > 0)
@@ -31,7 +31,7 @@ else
 }
 $output = '';
 $query = "
-		SELECT * FROM Item
+		SELECT * FROM Item where category = \"beverage\"
 		";
 $result = mysqli_query($connect, $query);
 if(mysqli_num_rows($result) > 0)

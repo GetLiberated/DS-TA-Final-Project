@@ -85,18 +85,21 @@
         <div class="list">
             <?php
                 $id = $_GET["id"];
+                $connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
                 if ($id == '') {
-                    $id = 1;
+                    $query = "
+                            SELECT transactionID FROM Transaction ORDER BY transactionID DESC LIMIT 1
+                            ";
+                    $result = mysqli_query($connect, $query);
+                    while($row = mysqli_fetch_array($result))
+                    {
+                        $id = $row["transactionID"];
+                    }
                 }
                 echo '<span class="placeholder">'.$id.'</span>';
             ?>
             <ul class="list__ul">
                 <?php
-                    $id = $_GET["id"];
-                    if ($id == '') {
-                        $id = 1;
-                    }
-                    $connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
                     $query = "SELECT transactionID FROM Transaction ORDER BY transactionID";
                     $result = mysqli_query($connect, $query);
                     $output = '';
@@ -125,10 +128,6 @@
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
     <?php
-        $id = $_GET["id"];
-        if ($id == '') {
-            $id = 1;
-        }
         $connect = mysqli_connect("dbta.1ez.xyz", "MUH7052", "8qlnrwkp", "8_groupDB");
         $query = "SELECT *, Payment.name AS pname FROM Transaction
                     INNER JOIN Payment ON Transaction.paymentID = Payment.paymentID
@@ -177,7 +176,7 @@
                     INNER JOIN Item ON TransactionDetail.itemID = Item.id
                     WHERE TransactionDetail.transactionID = ".$id."
                     GROUP BY TransactionDetail.itemID";
-        $result = mysqli_query($connect, $query);
+        $result = mysqli_query($connect, $query) or die(mysqli_error($connect));
         $output = '';
         if(mysqli_num_rows($result) != 0)
         {
@@ -185,8 +184,17 @@
             $beverage = 0;
             $total = 0;
             while($row = mysqli_fetch_array($result)) {
+                $q = "
+                    SELECT TransactionDetail.description FROM TransactionDetail INNER JOIN Item ON TransactionDetail.itemID = Item.id where itemID =".$row["id"]."
+                    ";
+                $temp = mysqli_query($connect, $q);
+                $desc = '';
+                while($r = mysqli_fetch_array($temp))
+                {
+                    $desc = $r["description"];
+                }
                 $output .= '
-                                <p id="normal" style="display: inline-block; word-wrap: break-word; width: 300px;">'.$row["c"].' '.$row["foodName"].' '.$row["description"].'</p>
+                                <p id="normal" style="display: inline-block; word-wrap: break-word; width: 300px;">'.$row["c"].' '.$row["foodName"].' '.$desc.'</p>
                                 <p id="normal" style="float: right; display: inline-block;">'.($row["price"]*$row["c"]).'</p>
                             ';
                 $total += ($row["price"]*$row["c"]);
@@ -197,6 +205,7 @@
                 }
             }
             $totalTax = ($total*$tax)/100;
+            $total += $totalTax;
             $output .= '
                             <div style="margin-left: 20px;">
                             <p id="normal" style="display: inline-block; word-wrap: break-word; width: 300px;">'.$paymentName.'</p>
@@ -215,13 +224,13 @@
                             </div>
                             </div>
                             <p id="wide" style="display: inline-block;">Total</p>
-                            <p id="wide" style="float: right; display: inline-block;">Rp'.number_format($total+$totalTax)."<br>".'</p>
+                            <p id="wide" style="float: right; display: inline-block;">Rp'.number_format($total)."<br>".'</p>
                             <br>
                             <p id="wide" style="display: inline-block;">Change Due</p>
-                            <p id="wide" style="float: right; display: inline-block;">Rp'.number_format($income-$total)."<br>".'</p>
+                            <p id="wide" style="float: right; display: inline-block;">Rp'.number_format((int)($income-$total))."<br>".'</p>
                             <br>
                             <br>
-                            <p id="normal">-----------------------Check Closed---------------------</p>
+                            <p id="normal">---------------------- Check Closed --------------------</p>
                             <p id="normal" style="text-align: center">'.$date.'</p>
                             <br>
                             <p id="normal" style="text-align: center">Thank You! Tell us how we did today</p>

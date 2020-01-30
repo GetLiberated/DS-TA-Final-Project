@@ -7,8 +7,8 @@ if (mysqli_connect_errno()) {
 $input = filter_input_array(INPUT_POST);
 if ($input['action'] == 'edit') {	
 	$update_field='';
-	if(isset($input['total'])) {
-		$update_field.= "total='".$input['total']."'";
+	if(isset($input['income'])) {
+		$update_field.= "income='".$input['income']."'";
 	} else if(isset($input['date'])) {
 		$update_field.= "date='".$input['date']."'";
 	} else if(isset($input['staffID'])) {

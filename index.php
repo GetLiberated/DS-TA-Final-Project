@@ -1,4 +1,5 @@
 	<?php 
+
 	$queryGetname = mysqli_query($connection,"SELECT * FROM Staff");
 	
 									
@@ -6,23 +7,9 @@
 	if(isset($_POST['admin_login'])){
 		$Name = mysqli_real_escape_string($connection, $_POST['Name']);
 		$Pass = mysqli_real_escape_string($connection, $_POST['Pass']);
+
 	
-	if($Name == '1' && $Pass == '1'){
-		echo "<script>
- 	window.onload = function() {
-     // similar behavior as clicking on a link
-     window.location.href = \"home.php\";
- 	}
- </script>";
-		
-	}
-
-
-	else{
-		header("Location: index.php?Failed");
-				}			
-			
-	}
+	
 
 	
 
@@ -90,13 +77,49 @@
 			  </div>
 
 			  <button name="admin_login" style="width: 100%" type="submit" class="btn btn-primary">login</button>
-				<?php if(isset($_GET['Failed'])) {
+				<?php 
+				include("database/config.php");
+				if(isset($_POST['admin_login'])){
+					$Name = mysqli_real_escape_string($connection, $_POST['Name']);
+					$Pass = mysqli_real_escape_string($connection, $_POST['Pass']);
+				
+				$connect = mysqli_connect("dbta.1ez.xyz", "LIV6384", "dfjjssgm", "8_groupDB");
+				$result = mysqli_query($connect, "SELECT * FROM Staff");
+				if(mysqli_num_rows($result) > 0)
+				{
+					while($row = mysqli_fetch_array($result))
+					{
+						if($Name == $row["name"] && $Pass == $row["staffID"]){
+							echo "<script>
+ 	window.onload = function() {
+     // similar behavior as clicking on a link
+     window.location.href = \"home.php\";
+ 	}
+ </script>";
+						break;
+						}
+					}
+					echo $output;
+				}
+				else
+				{
+					echo 'Data Not Found';
+				}
+				if($Name == 'admin' && $Pass == 'admin'){
+		echo "<script>
+ 	window.onload = function() {
+     // similar behavior as clicking on a link
+     window.location.href = \"home.php\";
+ 	}
+ </script>";
+		
+	} else {
 
 			   ?>
 			 	<div class="form-group">
 			 		<label style="color: red">Wrong Username or password</label>
 			 	</div>
-			 <?php } ?>
+			 <?php } }?>
 			</form>
 
    	</div>

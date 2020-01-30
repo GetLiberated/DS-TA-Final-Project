@@ -180,11 +180,10 @@
     <table id="database">
         <tr>
             <th width="8%"></th>
-            <th width="17%">Transaction Detail ID</th>
-            <th width="17%">Item ID</th>
-            <th width="17%">Transaction ID</th>
-            <th width="17%">Quantity</th>
-            <th width="24%">Item Description</th>
+            <th width="21%">Transaction Detail ID</th>
+            <th width="21%">Item ID</th>
+            <th width="21%">Transaction ID</th>
+            <th width="29%">Item Description</th>
         </tr>
         <?php
             $transactionDetailID= $_GET["transactionDetailID"];
@@ -203,7 +202,6 @@
         <?php
             $itemID = $_GET["itemID"];
             $transactionID = $_GET["transactionID"];
-            $quantity= $_GET["quantity"];
             $quantity= $_GET["description"];
            
 
@@ -212,8 +210,8 @@
                 die("Connection failed: " . $conn->connect_error);
             } 
 
-            $sql = "INSERT INTO TransactionDetail (itemID, transactionID, quantity, description)
-            VALUES (\"" . $itemID . "\",\"" . $transactionID . "\",\""  . $quantity . "\",\""  . $description . "\")";
+            $sql = "INSERT INTO TransactionDetail (itemID, transactionID,  description)
+            VALUES (\"" . $itemID . "\",\"" . $transactionID . "\",\""  . $description . "\")";
 
             if ($itemID != "") $conn->query($sql);
 
@@ -240,7 +238,6 @@
                             <td>" . $row["transactionDetailID"]. "</td>
                             <td>" . $row["itemID"]. "</td>
                             <td>" . $row["transactionID"]. "</td>
-                            <td>" . $row["quantity"]."</td>
                         </tr>";
                 }
                 // echo "</table>";
@@ -252,20 +249,18 @@
         <table id="inserTable">
             <tr>
                 <th width="8%"></th>
-                <th width="17%"></th>
-                <th width="17%"><input type="number" name="itemID" required></th>
-                <th width="17%"><input type="number" name="transactionID" required></th>
-                <th width="17%"><input type="number" name="quantity" required></th>
-                <th width="24%"><input type="number" name="description" required></th>
+                <th width="21%"></th>
+                <th width="21%"><input type="number" name="itemID" required></th>
+                <th width="21%"><input type="number" name="transactionID" required></th>
+                <th width="29%"><input type="number" name="description" required></th>
 
             </tr>
             <tr>
                 <th width="8%"></th>
-                <th width="17%"></th>
-                <th width="17%"></th>
-                <th width="17%"></th>
-                <th width="17%"></th>
-                <th width="24%"><input class="submit" type="submit" value="Submit"></th>
+                <th width="21%"></th>
+                <th width="21%"></th>
+                <th width="21%"></th>
+                <th width="29%"><input class="submit" type="submit" value="Submit"></th>
             </tr>
         </table>
     </form>
@@ -303,7 +298,7 @@
                             editButton: false,   		
                             columns: {
                                 identifier: [1, 'transactionDetailID'],                    
-                                editable: [[2, 'itemID'],[3, 'transactionID'], [4, 'quantity'],[5, 'description']]
+                                editable: [[2, 'itemID'],[3, 'transactionID'], [4, 'description']]
                             },
                             hideIdentifier: false,
                             url: 'live_edit_TransactionDetail.php'		

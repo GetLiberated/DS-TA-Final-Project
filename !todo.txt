@@ -1,8 +1,0 @@
-- RAW QUERY (done)
-- Group By, Order By (Select *, COUNT(*) from `table_name` Group By `column_name`) (done)
-- Transaction Details (done)
-- Mimic the Receipt/Invoice (done)
-- Interface
-    - bikin login
-    - bagusin menu ~Menu sudah terlalu bagus, it's my master piece <- apa ini
-- not null autis
